@@ -9,6 +9,8 @@
     <sprite>sprites\hero_idle</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_heromask</sprite>
+    <sprite>sprites\spr_soul</sprite>
+    <sprite>sprites\spr_prsoul</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -17,6 +19,8 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_hero</object>
     <object>objects\par_wall</object>
+    <object>objects\obj_soul</object>
+    <object>objects\obj_prsoul</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
