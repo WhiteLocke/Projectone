@@ -7,13 +7,21 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\hero_idle</sprite>
+    <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_heromask</sprite>
     <sprite>sprites\spr_soul</sprite>
     <sprite>sprites\spr_prsoul</sprite>
+    <sprite>sprites\spr_expr</sprite>
+    <sprite>sprites\hero_run</sprite>
+    <sprite>sprites\hero_jumping</sprite>
+    <sprite>sprites\hero_fall</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_ai.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_parsoul</object>
     <object>objects\obj_wall</object>
@@ -21,6 +29,10 @@
     <object>objects\par_wall</object>
     <object>objects\obj_soul</object>
     <object>objects\obj_prsoul</object>
+    <object>objects\obj_expr</object>
+    <object>objects\obj_globals</object>
+    <object>objects\obj_stats</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
