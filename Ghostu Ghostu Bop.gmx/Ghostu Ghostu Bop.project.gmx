@@ -16,25 +16,32 @@
     <sprite>sprites\hero_run</sprite>
     <sprite>sprites\hero_jumping</sprite>
     <sprite>sprites\hero_fall</sprite>
+    <sprite>sprites\spr_marrow</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_ai.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\f_menuW</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_parsoul</object>
     <object>objects\obj_wall</object>
-    <object>objects\obj_hero</object>
     <object>objects\par_wall</object>
+    <object>objects\obj_hero</object>
     <object>objects\obj_soul</object>
     <object>objects\obj_prsoul</object>
     <object>objects\obj_expr</object>
     <object>objects\obj_globals</object>
     <object>objects\obj_stats</object>
     <object>objects\obj_enemy</object>
+    <object>objects\obj_battlemenu</object>
+    <object>objects\obj_marrow</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\menu</room>
     <room>rooms\room0</room>
   </rooms>
   <help>
