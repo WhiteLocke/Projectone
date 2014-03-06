@@ -25,7 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>strength = 10
+            <string>MAXSTAT = 255
+
+/* The list of stats common to all Characters */
+
+strength = 10
+intelligence = 10
+agility = 10
+willpower = 10
+vitality = 10
 
 </string>
           </argument>

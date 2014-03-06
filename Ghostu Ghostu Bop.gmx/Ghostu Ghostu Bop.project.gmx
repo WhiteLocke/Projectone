@@ -40,15 +40,15 @@
     <objects name="Characters">
       <object>objects\Character</object>
       <object>objects\HiroProtagonist</object>
+      <object>objects\MarySue</object>
     </objects>
     <object>objects\obj_battlemenu</object>
     <object>objects\obj_marrow</object>
   </objects>
-  <timelines name="timelines"/>
   <rooms name="rooms">
-    <room>rooms\battle_test_room</room>
     <room>rooms\menu</room>
     <room>rooms\room0</room>
+    <room>rooms\stat_menu_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
