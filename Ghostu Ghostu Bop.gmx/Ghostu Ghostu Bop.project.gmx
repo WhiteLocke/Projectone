@@ -22,6 +22,9 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_ai.gml</script>
+    <scripts name="Items">
+      <script>scripts\scr_potion.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_menuW</font>
@@ -44,12 +47,29 @@
     </objects>
     <object>objects\obj_battlemenu</object>
     <object>objects\obj_marrow</object>
+    <objects name="Items">
+      <object>objects\Item</object>
+      <objects name="Consumables">
+        <object>objects\Consumable</object>
+        <object>objects\obj_potion</object>
+      </objects>
+    </objects>
+    <objects name="Player">
+      <object>objects\Player</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\menu</room>
-    <room>rooms\room0</room>
     <room>rooms\stat_menu_test</room>
+    <room>rooms\room0</room>
   </rooms>
+  <constants number="5">
+    <constant name="TARGET_ALLY_ONE">1</constant>
+    <constant name="TARGET_ALLY_ALL">2</constant>
+    <constant name="TARGET_ENEMY_ONE">3</constant>
+    <constant name="TARGET_ENEMY_ALL">4</constant>
+    <constant name="ITEM_CONSUMABLE">1</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

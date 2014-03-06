@@ -112,11 +112,26 @@ if(keyboard_check_pressed(vk_enter))
             show_message('you are so special')
             break;
         case 4: //items//
-            show_message('you got nothin')
+            
+            
+                with(Player){
+                    if(Player.inventory[0,1] &gt; 0){
+                        show_message('you used a potion')
+                        Player.inventory[0,1] -= 1
+                            script_execute(Player.inventory[0,0].script,Player.party[0])
+                        }
+                    else
+                        show_message('no more potions!')
+                    }
+                
+
+                
+                
             break;
-        case 5: //items//
+        case 5: //status//
             show_message('a/s/l')
             break;
+            
     }
 }
 

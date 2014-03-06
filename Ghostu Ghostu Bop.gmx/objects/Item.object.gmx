@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,22 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MAXSTAT = 255
-
-/* The list of stats common to all Characters */
-
-strength = 10
-intelligence = 10
-agility = 10
-willpower = 10
-vitality = 10
-maxHP = 1000
-
-/* Calculated or transitory stats */
-currentHP = 900
-
-dummy = 'hello'
-show_message('Character created!')
+            <string>// Items consist of a name, price, salability and item type
+name = 'null'
+price = 1 //This is sale price; for buyable items, price is probably double this
+sellable = false //false means it cannot be sold or dropped
+type = ''
 </string>
           </argument>
         </arguments>

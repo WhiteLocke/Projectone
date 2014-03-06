@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Item</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,22 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MAXSTAT = 255
+            <string>/* Constants defined globally:
 
-/* The list of stats common to all Characters */
+TARGET_ALLY_ONE - 1
+TARGET_ALLY_ALL - 2
+TARGET_ENEMY_ONE - 3
+TARGET_ENEMY_ALL - 4
 
-strength = 10
-intelligence = 10
-agility = 10
-willpower = 10
-vitality = 10
-maxHP = 1000
+*/
 
-/* Calculated or transitory stats */
-currentHP = 900
+type = ITEM_CONSUMABLE
 
-dummy = 'hello'
-show_message('Character created!')
+//consumable items need an associated script
+script = ''
+
 </string>
           </argument>
         </arguments>

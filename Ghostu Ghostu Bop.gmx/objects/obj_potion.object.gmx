@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Consumable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,22 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MAXSTAT = 255
-
-/* The list of stats common to all Characters */
-
-strength = 10
-intelligence = 10
-agility = 10
-willpower = 10
-vitality = 10
-maxHP = 1000
-
-/* Calculated or transitory stats */
-currentHP = 900
-
-dummy = 'hello'
-show_message('Character created!')
+            <string>name = 'Potion'
+price = 100
+sellable = true
+script = scr_potion
 </string>
           </argument>
         </arguments>
