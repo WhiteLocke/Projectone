@@ -76,7 +76,7 @@ if (bmenu&gt;5)bmenu=1;
           <argument>
             <kind>1</kind>
             <string>
-//this are the actions of what happens when you click on an option
+/*//this are the actions of what happens when you click on an option
 if(keyboard_check_pressed(vk_enter))
 {
     if(submenu)
