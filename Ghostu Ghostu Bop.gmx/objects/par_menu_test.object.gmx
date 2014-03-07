@@ -28,7 +28,7 @@
             <string>bmenu = 1;
 submenu = false;
 sub = 0;
-i = 0;
+
 menx = room_width - (room_width*.25);
 meny = (room_height/3)+(room_height/3);
 menw = room_width*.25;
@@ -38,27 +38,27 @@ menspace = 25;
 drawn_menu = draw_sprite_stretched(spr_menu,0,menx,meny,menw,menh);
 
 for (i = 1; i &lt; 6; i++){
-	mo[i] = instance_create(x,y,obj_menuentry)
-	mo[i].x = menx + menw*.25 
-	mo[i].y = meny + i*menspace;
+mo[i] = instance_create(x,y,obj_menuentry)
+mo[i].x = menx + menw*.25 
+mo[i].y = meny + i*menspace;
 switch(i){
-		case 1: 
-			mo[i].txt = 'Attack'
-			mo[i].y = meny + 16
-			break
-		case 2:
-			mo[i].txt = 'Magic'
-			break
-		case 3:
-			mo[i].txt = 'Special'
-			break
-		case 4:
-			mo[i].txt = 'Item'
-			break
-		case 5:
-			mo[i].txt = 'Status'
-			break
-	}
+case 1: 
+mo[i].txt = 'Attack'
+mo[i].y = meny + 16
+break
+case 2:
+mo[i].txt = 'Magic'
+break
+case 3:
+mo[i].txt = 'Special'
+break
+case 4:
+mo[i].txt = 'Item'
+break
+case 5:
+mo[i].txt = 'Status'
+break
+}
 }
 
 </string>
