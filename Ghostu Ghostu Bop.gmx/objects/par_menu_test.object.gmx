@@ -28,6 +28,39 @@
             <string>bmenu = 1;
 submenu = false;
 sub = 0;
+i = 0;
+menx = room_width - (room_width*.25);
+meny = (room_height/3)+(room_height/3);
+menw = room_width*.25;
+menh = room_height/3;
+menspace = 25;
+
+drawn_menu = draw_sprite_stretched(spr_menu,0,menx,meny,menw,menh);
+
+for (i = 1; i &lt; 6; i++){
+	mo[i] = instance_create(x,y,obj_menuentry)
+	mo[i].x = menx + menw*.25 
+	mo[i].y = meny + i*menspace;
+switch(i){
+		case 1: 
+			mo[i].txt = 'Attack'
+			mo[i].y = meny + 16
+			break
+		case 2:
+			mo[i].txt = 'Magic'
+			break
+		case 3:
+			mo[i].txt = 'Special'
+			break
+		case 4:
+			mo[i].txt = 'Item'
+			break
+		case 5:
+			mo[i].txt = 'Status'
+			break
+	}
+}
+
 </string>
           </argument>
         </arguments>
@@ -50,7 +83,8 @@ sub = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (bmenu&lt;1)bmenu=5;
+            <string>
+if (bmenu&lt;1)bmenu=5;
 else
 if (bmenu&gt;5)bmenu=1;
 </string>
@@ -179,7 +213,9 @@ if bmenu=5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* move_snap does not do what you think it does! */
+            <string>
+
+/* move_snap does not do what you think it does! */
 
 //and now were going to draw the bmenu//
 draw_set_font(f_menuW)//set's a font
@@ -187,11 +223,11 @@ draw_set_font(f_menuW)//set's a font
 /*I moved all the programming that isn't drawing out of here as it should be. You had it duplicated anyway. */
 
    
-   draw_text_color(x+36,140,'Attack',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,200,'Magic',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,260,'Special',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,320,'Items',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,380,'Status',c_white,c_white,c_white,c_white,1)
+   draw_text_color(mo[i].x,mo[i].y,mo[i].txt,c_white,c_white,c_white,c_white,1)
+  /* draw_text_color(mo2x,mo2y,mo2txt,c_white,c_white,c_white,c_white,1)
+   draw_text_color(mo3x,mo3y,mo3txt,c_white,c_white,c_white,c_white,1)
+   draw_text_color(mo4x,mo4y,mo4txt,c_white,c_white,c_white,c_white,1)
+   draw_text_color(mo5x,mo5y,mo5txt,c_white,c_white,c_white,c_white,1)*/
         
 
 
