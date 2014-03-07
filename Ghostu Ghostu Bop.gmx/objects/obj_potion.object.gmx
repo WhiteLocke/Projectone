@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = 'Potion'
+            <string>event_inherited()
+name = 'Potion'
 price = 100
 sellable = true
 script = scr_potion

@@ -25,45 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bmenu = 1;
-submenu = false;
-sub = 0;
+            <string>/* width and height of the window */
+width = 0
+height = 0
 
+/* Spacing between entries */
+menuSpace = 25;
 
+/* number of entries */
+numEntries = 0
 
-menux = room_width - (room_width*.25);
-menuy = (room_height/3)+(room_height/3);
-menw = room_width*.25;
-menh = room_height/3;
-menspace = 25;
-menuEntries = 5
+/* array of obj_menuentry objects */
+menuEntry[0] = 0
 
-menEntryStartY = menuy+.5*menspace
+//Where to start the first entry
+menEntryStartY = y+.5*menuSpace
 
-for (i = 0; i &lt; menuEntries; i++){
-mo[i] = instance_create(x,y,obj_menuentry)
-mo[i].x = menux + menw*.25 
-mo[i].y = menEntryStartY + i*menspace;
-switch(i){
-case 0: 
-mo[i].txt = 'Attack'
-//mo[i].y = menuy + 16
-break
-case 1:
-mo[i].txt = 'Magic'
-break
-case 2:
-mo[i].txt = 'Special'
-break
-case 3:
-mo[i].txt = 'Item'
-break
-case 4:
-mo[i].txt = 'Status'
-break
-}
-}
+//which entry is currently selected
+entrySelected = 0
 
+//move the arrow
+if (!instance_exists(obj_marrow))
+   arrow = instance_create(x,y,obj_marrow)
 </string>
           </argument>
         </arguments>
@@ -141,88 +124,21 @@ if (bmenu&gt;5)bmenu=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-/*//this are the actions of what happens when you click on an option
-if(keyboard_check_pressed(vk_enter))
-{
-    if(submenu)
-        show_message('pussy')
-    else switch(bmenu)
+            <string>/* Only draw if we have entries */
+if(numEntries &gt; 0){
+    if(keyboard_check_pressed(vk_enter))
     {
-        case 1://attack//
-            show_message('you attack')
-            break;
-        case 2: //magic//
-            show_message('ALAKAZAM!')
-            break;
-        case 3: //special//
-            show_message('you are so special')
-            break;
-        case 4: //items//
-            
-            
-                with(Player){
-                    if(Player.inventory[0,1] &gt; 0){
-                        show_message('you used a potion')
-                        Player.inventory[0,1] -= 1
-                            script_execute(Player.inventory[0,0].script,Player.party[0])
-                        }
-                    else
-                        show_message('no more potions!')
-                    }
-                
-
-                
-                
-            break;
-        case 5: //status//
-            show_message('a/s/l')
-            break;
-            
+            script_execute(menuEntry[entrySelected].script)   
     }
-}
-
-
-
-if(keyboard_check_pressed(vk_up)) bmenu -= 1;
-if(keyboard_check_pressed(vk_down)) bmenu += 1;
-if(keyboard_check_pressed(vk_right)) 
-{
-submenu=1;
-}
-if(keyboard_check_pressed(vk_left))
-{
-submenu=0;
-}
-//draw the arrow
-if (!instance_exists(obj_marrow))
-   arrow = instance_create(x,140,obj_marrow);
-if bmenu=1
-    with (arrow)
-        y = 140
-
-if bmenu=2
-    with (arrow)
-        y = 200
-
-if bmenu=3
-    with (arrow)
-        y = 260
     
-if bmenu=4
-    with (arrow)
-        y = 320
+    if(keyboard_check_pressed(vk_up)) entrySelected -= 1;
+    if(keyboard_check_pressed(vk_down)) entrySelected += 1;
     
-if bmenu=4
-    with (arrow)
-        y = 320
-
-if bmenu=5
-    with (arrow)
-        y = 380
-   
-
-
+    var arrowy = menuEntry[entrySelected].y   
+    with(arrow)
+        y = arrowy
+        
+}
 </string>
           </argument>
         </arguments>

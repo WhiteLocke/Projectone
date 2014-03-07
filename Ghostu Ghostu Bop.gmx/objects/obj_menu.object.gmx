@@ -25,44 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bmenu = 1;
-submenu = false;
-sub = 0;
+            <string>/* width and height of the window */
+width = 0
+height = 0
+
+/* number of entries */
+numEntries = 0
+
+/* array of obj_menuentry objects */
+menuEntry[0] = 0
+
+/* whether this is the top menu, i.e., where our cursor is */
+inFocus = true
+
+/* this is the object id of a parent menu, if this is a submenu*/
+parentID = -1
 
 
 
-menux = room_width - (room_width*.25);
-menuy = (room_height/3)+(room_height/3);
-menw = room_width*.25;
-menh = room_height/3;
-menspace = 25;
-menuEntries = 5
+/* THESE ARE AUTOMATICALLY SET */
+/* Spacing between entries */
+menuSpace = 25;
+menuEntryStartY = y+.5*menuSpace
 
-menEntryStartY = menuy+.5*menspace
+//which entry is currently selected
+entrySelected = 0
 
-for (i = 0; i &lt; menuEntries; i++){
-mo[i] = instance_create(x,y,obj_menuentry)
-mo[i].x = menux + menw*.25 
-mo[i].y = menEntryStartY + i*menspace;
-switch(i){
-case 0: 
-mo[i].txt = 'Attack'
-//mo[i].y = menuy + 16
-break
-case 1:
-mo[i].txt = 'Magic'
-break
-case 2:
-mo[i].txt = 'Special'
-break
-case 3:
-mo[i].txt = 'Item'
-break
-case 4:
-mo[i].txt = 'Status'
-break
-}
-}
 
 </string>
           </argument>
@@ -86,39 +74,12 @@ break
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Destroy all the obj_menuentries */
-
-for (i = 0; i &lt; menuEntries; i++){
-    with (mo[i]){
-        instance_destroy()
+            <string>    //Destroy our menu entries
+    for(var i = 0; i &lt; numEntries; i++){
+        with(menuEntry[i])
+            instance_destroy()
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-if (bmenu&lt;1)bmenu=5;
-else
-if (bmenu&gt;5)bmenu=1;
+
 </string>
           </argument>
         </arguments>
@@ -141,88 +102,40 @@ if (bmenu&gt;5)bmenu=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-/*//this are the actions of what happens when you click on an option
-if(keyboard_check_pressed(vk_enter))
-{
-    if(submenu)
-        show_message('pussy')
-    else switch(bmenu)
+            <string>/* Only draw if we have entries and are inFocus */
+if(inFocus &amp;&amp; numEntries &gt; 0){
+    //create the arrow
+// note the y value doesn't matter -- other code sets the y to match the first entry
+    if (!instance_exists(obj_marrow))
+       arrow = instance_create(x+width*.225,y,obj_marrow)
+    
+    
+    if(keyboard_check_pressed(vk_enter))
     {
-        case 1://attack//
-            show_message('you attack')
-            break;
-        case 2: //magic//
-            show_message('ALAKAZAM!')
-            break;
-        case 3: //special//
-            show_message('you are so special')
-            break;
-        case 4: //items//
             
-            
-                with(Player){
-                    if(Player.inventory[0,1] &gt; 0){
-                        show_message('you used a potion')
-                        Player.inventory[0,1] -= 1
-                            script_execute(Player.inventory[0,0].script,Player.party[0])
-                        }
-                    else
-                        show_message('no more potions!')
-                    }
-                
-
-                
-                
-            break;
-        case 5: //status//
-            show_message('a/s/l')
-            break;
-            
+            if(script_exists(menuEntry[entrySelected].script)){
+                //TODO: MAKE ARRAY PASSING WORK
+                script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams[0])
+            }
     }
-}
-
-
-
-if(keyboard_check_pressed(vk_up)) bmenu -= 1;
-if(keyboard_check_pressed(vk_down)) bmenu += 1;
-if(keyboard_check_pressed(vk_right)) 
-{
-submenu=1;
-}
-if(keyboard_check_pressed(vk_left))
-{
-submenu=0;
-}
-//draw the arrow
-if (!instance_exists(obj_marrow))
-   arrow = instance_create(x,140,obj_marrow);
-if bmenu=1
-    with (arrow)
-        y = 140
-
-if bmenu=2
-    with (arrow)
-        y = 200
-
-if bmenu=3
-    with (arrow)
-        y = 260
+    if(keyboard_check_pressed(vk_up)) entrySelected -= 1;
+    if(keyboard_check_pressed(vk_down)) entrySelected += 1;
     
-if bmenu=4
-    with (arrow)
-        y = 320
+    //This handles wraparound
+    if(entrySelected &lt; 0)
+        entrySelected = 0
+        //Technically this should do it alone, but GameMaker doesn't
+        //handle modulus of negative numbers properly
+    entrySelected = entrySelected mod numEntries
     
-if bmenu=4
-    with (arrow)
-        y = 320
-
-if bmenu=5
-    with (arrow)
-        y = 380
-   
-
-
+    var arrowy = menuEntry[entrySelected].y + .5*menuSpace + 2
+    var arrowx = x+width*.225
+    with(obj_marrow){
+        x = arrowx
+        y = arrowy
+    }
+        
+}
 </string>
           </argument>
         </arguments>
@@ -251,17 +164,50 @@ draw_set_font(f_menuW)//set's a font
 
 /*I moved all the programming that isn't drawing out of here as it should be. You had it duplicated anyway. */
 
-draw_sprite_stretched(spr_menu,0,menx,meny,menw,menh);
-for (i = 0; i &lt;  menuEntries; i++) 
-   draw_text_color(mo[i].x,mo[i].y,mo[i].txt,c_white,c_white,c_white,c_white,1)
+draw_sprite_stretched(spr_menu,0,x,y,width,height);
+for (i = 0; i &lt;  numEntries; i++) 
+   draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
 
-
-
-/////////////////////////////////
-if submenu=true
-   draw_text_color(x+100,140,'Defend',c_white,c_white,c_white,c_white,1)
+   //draw the arrow
+if(inFocus){
+    with(obj_marrow)
+        draw_self()
+}
  
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//return to the parent menu
+
+//Check to see if we have focus, and if we have a parent
+if(inFocus and parentID &gt; -1)
+{
+    //Give my parent focus
+    parentID.inFocus = true
+    
+    //Kill myself
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

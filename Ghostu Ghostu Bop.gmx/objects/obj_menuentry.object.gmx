@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script = '';
+            <string>script = -1
+numScriptParams = 0
+scriptParams[0] = 0
 txt = '';
-x = 0;
-y = 0;
 </string>
           </argument>
         </arguments>

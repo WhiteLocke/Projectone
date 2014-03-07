@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Constants defined globally:
+            <string>event_inherited()
+/* Constants defined globally:
 
 TARGET_ALLY_ONE - 1
 TARGET_ALLY_ALL - 2

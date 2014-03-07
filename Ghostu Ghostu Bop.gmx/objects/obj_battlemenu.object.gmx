@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_menu</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,180 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bmenu = 1;
-submenu = false;
-sub = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (bmenu&lt;1)bmenu=5;
-else
-if (bmenu&gt;5)bmenu=1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-//this are the actions of what happens when you click on an option
-if(keyboard_check_pressed(vk_enter))
-{
-    if(submenu)
-        show_message('pussy')
-    else switch(bmenu)
-    {
-        case 1://attack//
-            show_message('you attack')
-            break;
-        case 2: //magic//
-            show_message('ALAKAZAM!')
-            break;
-        case 3: //special//
-            show_message('you are so special')
-            break;
-        case 4: //items//
-            
-            
-                with(Player){
-                    if(Player.inventory[0,1] &gt; 0){
-                        show_message('you used a potion')
-                        Player.inventory[0,1] -= 1
-                            script_execute(Player.inventory[0,0].script,Player.party[0])
-                        }
-                    else
-                        show_message('no more potions!')
-                    }
-                
+            <string>event_inherited()
+x = room_width - (room_width*.5)
+y = (room_height/3)+(room_height/3)
 
-                
-                
-            break;
-        case 5: //status//
-            show_message('a/s/l')
-            break;
-            
-    }
+//Since we're changing y, we need to calculate our own 
+menuEntryStartY = y+.5*menuSpace
+
+width = room_width*.25
+height = room_height/3
+numEntries = 5
+for(var i = 0; i &lt; numEntries; i++){
+    menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
+    menuEntry[i].txt = 'Dummy'
 }
 
+menuEntry[1].txt = 'Magic'
+menuEntry[1].script = scr_spawn_magic_list
+menuEntry[1].numScriptParams = 1
+
+menuEntry[1].scriptParams[0] = id
 
 
-if(keyboard_check_pressed(vk_up)) bmenu -= 1;
-if(keyboard_check_pressed(vk_down)) bmenu += 1;
-if(keyboard_check_pressed(vk_right)) 
-{
-submenu=1;
-}
-if(keyboard_check_pressed(vk_left))
-{
-submenu=0;
-}
-//draw the arrow
-if (!instance_exists(obj_marrow))
-   arrow = instance_create(x,140,obj_marrow);
-if bmenu=1
-    with (arrow)
-        y = 140
-
-if bmenu=2
-    with (arrow)
-        y = 200
-
-if bmenu=3
-    with (arrow)
-        y = 260
-    
-if bmenu=4
-    with (arrow)
-        y = 320
-    
-if bmenu=4
-    with (arrow)
-        y = 320
-
-if bmenu=5
-    with (arrow)
-        y = 380
-   
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/* move_snap does not do what you think it does! */
-
-//and now were going to draw the bmenu//
-draw_set_font(f_menuW)//set's a font
-
-/*I moved all the programming that isn't drawing out of here as it should be. You had it duplicated anyway. */
-
-   
-   draw_text_color(x+36,140,'Attack',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,200,'Magic',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,260,'Special',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,320,'Items',c_white,c_white,c_white,c_white,1)
-   draw_text_color(x+36,380,'Status',c_white,c_white,c_white,c_white,1)
-        
-
-
-/////////////////////////////////
-if submenu=true
-   draw_text_color(x+100,140,'Defend',c_white,c_white,c_white,c_white,1)
- 
 
 </string>
           </argument>
