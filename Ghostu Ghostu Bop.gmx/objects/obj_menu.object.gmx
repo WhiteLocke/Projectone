@@ -51,6 +51,8 @@ menuEntryStartY = y+.5*menuSpace
 //which entry is currently selected
 entrySelected = 0
 
+arrowx = -1;
+arrowy = -1;
 
 </string>
           </argument>
@@ -104,10 +106,7 @@ entrySelected = 0
             <kind>1</kind>
             <string>/* Only draw if we have entries and are inFocus */
 if(inFocus &amp;&amp; numEntries &gt; 0){
-    //create the arrow
-// note the y value doesn't matter -- other code sets the y to match the first entry
-    if (!instance_exists(obj_marrow))
-       arrow = instance_create(x+width*.225,y,obj_marrow)
+   
     
     
     if(keyboard_check_pressed(vk_enter))
@@ -128,14 +127,25 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
         //handle modulus of negative numbers properly
     entrySelected = entrySelected mod numEntries
     
-    var arrowy = menuEntry[entrySelected].y + .5*menuSpace + 2
-    var arrowx = x+width*.225
-    with(obj_marrow){
-        x = arrowx
-        y = arrowy
-    }
+    arrowy = menuEntry[entrySelected].y + .5*menuSpace + 2
+    arrowx = x+width*.15
+    
         
 }
+if(keyboard_check_pressed(vk_escape))
+    { 
+    //return to the parent menu
+
+    //Check to see if we have focus, and if we have a parent
+        if(inFocus and parentID &gt; -1)
+        {
+    //Give my parent focus
+            parentID.inFocus = true
+    
+    //Kill myself
+            instance_destroy()
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -169,45 +179,15 @@ for (i = 0; i &lt;  numEntries; i++)
    draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
 
    //draw the arrow
-if(inFocus){
-    with(obj_marrow)
-        draw_self()
-}
- 
+if(inFocus)
+    if (arrowx &gt; 0 &amp;&amp; arrowy &gt; 0)
+        {
+        arrow = draw_sprite(spr_marrow,0,arrowx,arrowy)
+        }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//return to the parent menu
 
-//Check to see if we have focus, and if we have a parent
-if(inFocus and parentID &gt; -1)
-{
-    //Give my parent focus
-    parentID.inFocus = true
-    
-    //Kill myself
-    instance_destroy()
-}
+
+
 </string>
           </argument>
         </arguments>
