@@ -25,7 +25,7 @@
       <sprite>sprites\spr_menu</sprite>
     </sprites>
     <sprites name="Characters">
-      <sprite>sprites\spr_Noname</sprite>
+      <sprite>sprites\Noname_Spritesheet</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
