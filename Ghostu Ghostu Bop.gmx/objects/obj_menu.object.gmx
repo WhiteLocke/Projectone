@@ -135,7 +135,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
         //handle modulus of negative numbers properly
     entrySelected = entrySelected mod numEntries
     
-    arrowy = menuEntry[entrySelected].y + .5*menuSpace + 4
+    arrowy = menuEntry[entrySelected].y + .5*menuSpace + 3
     arrowx = x+width*.2
     
         
