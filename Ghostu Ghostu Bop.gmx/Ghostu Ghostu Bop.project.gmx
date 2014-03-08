@@ -6,6 +6,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\soundbeat</sound>
+    <sound>sound\snd_select</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\hero_idle</sprite>

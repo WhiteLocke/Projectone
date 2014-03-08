@@ -104,14 +104,15 @@ arrowy = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Only draw if we have entries and are inFocus */
+            <string>
+/* Only draw if we have entries and are inFocus */
 if(inFocus &amp;&amp; numEntries &gt; 0){
    
     
     
     if(keyboard_check_pressed(vk_enter))
     {
-            
+            audio_play_sound(soundbeat,10,0)
             if(script_exists(menuEntry[entrySelected].script)){
                 //TODO: MAKE ARRAY PASSING WORK
                 script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams[0])
@@ -120,12 +121,12 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
     if(keyboard_check_pressed(vk_up))
     {
         entrySelected -= 1;
-        audio_play_sound(soundbeat,10,0)
+        audio_play_sound(snd_select,10,0)
     }
     if(keyboard_check_pressed(vk_down)) 
     {
         entrySelected += 1;
-        audio_play_sound(soundbeat,10,0)
+        audio_play_sound(snd_select,10,0)
     }
     //This handles wraparound
     if(entrySelected &lt; 0)
@@ -181,7 +182,8 @@ draw_set_font(f_menuW)//set's a font
 
 /*I moved all the programming that isn't drawing out of here as it should be. You had it duplicated anyway. */
 
-draw_sprite_stretched(spr_menu,0,x,y,width,height);
+menubox = draw_sprite_stretched(spr_menu,0,x,y,width,height);
+
 for (i = 0; i &lt;  numEntries; i++) 
    draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
 
