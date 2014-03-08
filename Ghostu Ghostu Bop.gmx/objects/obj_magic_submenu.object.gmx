@@ -35,6 +35,7 @@ menuEntryStartY = y+.5*menuSpace
 width = room_width*.25
 height = room_height/3
 numEntries = 5
+visibleEntries = 5
 for(var i = 0; i &lt; numEntries; i++){
     menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
     menuEntry[i].txt = 'Spell'

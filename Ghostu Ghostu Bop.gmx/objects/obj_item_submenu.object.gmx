@@ -2,10 +2,10 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_menu</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,12 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Items consist of a name, price, salability and item type
-name = 'null'
-description = ''
-price = 1 //This is sale price; for buyable items, price is probably double this
-sellable = false //false means it cannot be sold or dropped
-type = ''
+            <string>event_inherited()
+x = room_width - (room_width*.25)
+y = (room_height/3)+(room_height/3)
+
+//Since we're changing y, we need to calculate our own 
+menuEntryStartY = y+.5*menuSpace
+
+width = room_width*.25
+height = room_height/3
+numEntries = Player.numItems
+visibleEntries = 5
+for(var i = 0; i &lt; numEntries; i++){
+    menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
+    menuEntry[i].txt = Player.inventory[i,0].name
+    menuEntry[i].script = Player.inventory[i,0].script
+}
 </string>
           </argument>
         </arguments>

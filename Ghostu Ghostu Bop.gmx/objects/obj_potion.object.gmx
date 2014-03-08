@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 name = 'Potion'
+description = 'Heals 100 HP'
 price = 100
 sellable = true
 script = scr_potion

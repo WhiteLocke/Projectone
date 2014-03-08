@@ -32,6 +32,7 @@ height = 0
 
 /* number of entries */
 numEntries = 0
+visisbleEntries = 0
 
 /* array of obj_menuentry objects */
 menuEntry[0] = 0
@@ -132,7 +133,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
     }
     //This handles wraparound
     if(entrySelected &lt; 0)
-        entrySelected = 0
+        entrySelected = numEntries-1
         //Technically this should do it alone, but GameMaker doesn't
         //handle modulus of negative numbers properly
     entrySelected = entrySelected mod numEntries

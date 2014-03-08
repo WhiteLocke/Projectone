@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,12 +25,60 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Items consist of a name, price, salability and item type
-name = 'null'
-description = ''
-price = 1 //This is sale price; for buyable items, price is probably double this
-sellable = false //false means it cannot be sold or dropped
-type = ''
+            <string>/* TODO: Choose the enemies */
+
+
+/* Set the characters in appropriate spots */
+Player.party[0].x = 512
+Player.party[0].y = 32
+
+/* Setup the status menu */
+
+statusX = 200
+statusY = (room_height/3)+(room_height/3)
+statusWidth = room_width*.65
+statusHeight = room_height/3
+
+/* Start the timer ? */
+
+/* Spawn battle menu 
+    this needs to be done elsewhere probably, based on speed
+    but lets just spawn a menu for the first party member for now
+*/
+
+instance_create(x,y,Player.party[0].battleMenuObject)
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* Draw the character status box */
+draw_sprite_stretched(spr_menu,0,statusX,statusY,statusWidth,statusHeight);
+draw_set_font(f_battleStatus)
+
+for(var i = 0; i &lt; Player.partyMembers; i++)
+{
+    hpString = "HP: " + string(Player.party[0].currentHP)+" / "+string(Player.party[0].maxHP)
+    draw_text(statusX+32,statusY+16+32*i,Player.party[0].name+"       "+hpString)
+}
 </string>
           </argument>
         </arguments>

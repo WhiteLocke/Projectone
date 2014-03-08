@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-x = room_width - (room_width*.5)
+x = 28
 y = (room_height/3)+(room_height/3)
 
 //Since we're changing y, we need to calculate our own 
@@ -35,17 +35,30 @@ menuEntryStartY = y+.5*menuSpace
 width = room_width*.25
 height = room_height/3
 numEntries = 5
+visibleEntries = 5
 for(var i = 0; i &lt; numEntries; i++){
     menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
     menuEntry[i].txt = 'Dummy'
 }
 
+/* Attack */
+menuEntry[0].txt = 'Attack'
+//menuEntry[0].script = scr_attack
+menuEntry[0].numScriptParams = 1
+menuEntry[0].scriptParams[0] = id
+
+
 menuEntry[1].txt = 'Magic'
 menuEntry[1].script = scr_spawn_magic_list
 menuEntry[1].numScriptParams = 1
-
 menuEntry[1].scriptParams[0] = id
 
+menuEntry[2].txt = 'Item'
+menuEntry[2].script = scr_spawn_item_list
+menuEntry[2].numScriptParams = 1
+menuEntry[2].scriptParams[0] = id
+
+menuEntry[4].txt = 'Role Shift'
 
 
 </string>
