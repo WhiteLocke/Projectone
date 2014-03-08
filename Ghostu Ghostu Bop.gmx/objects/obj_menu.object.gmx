@@ -117,9 +117,16 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
                 script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams[0])
             }
     }
-    if(keyboard_check_pressed(vk_up)) entrySelected -= 1;
-    if(keyboard_check_pressed(vk_down)) entrySelected += 1;
-    
+    if(keyboard_check_pressed(vk_up))
+    {
+        entrySelected -= 1;
+        audio_play_sound(soundbeat,10,0)
+    }
+    if(keyboard_check_pressed(vk_down)) 
+    {
+        entrySelected += 1;
+        audio_play_sound(soundbeat,10,0)
+    }
     //This handles wraparound
     if(entrySelected &lt; 0)
         entrySelected = 0
