@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* width and height of the window */
+            <string>depth = -10
+/* width and height of the window */
 width = 0
 height = 0
 
@@ -114,6 +115,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
     {
             audio_play_sound(soundbeat,10,0)
             if(script_exists(menuEntry[entrySelected].script)){
+                
                 //TODO: MAKE ARRAY PASSING WORK
                 script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams[0])
             }
@@ -148,6 +150,7 @@ if(keyboard_check_pressed(vk_escape))
         if(inFocus and parentID &gt; -1)
         {
     //Give my parent focus
+            audio_play_sound(snd_back,10,0)
             parentID.inFocus = true
     
     //Kill myself
@@ -184,16 +187,28 @@ draw_set_font(f_menuW)//set's a font
 
 menubox = draw_sprite_stretched(spr_menu,0,x,y,width,height);
 
-for (i = 0; i &lt;  numEntries; i++) 
-   draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
-
+for (i = 0; i &lt;  numEntries; i++)
+{
+    if (inFocus) 
+        draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
+    else
+        draw_text_color(menuEntry[entrySelected].x,menuEntry[entrySelected].y,menuEntry[entrySelected].txt,c_black,c_black,c_black,c_black,.15)
+}
    //draw the arrow
 if(inFocus)
+    {
     if (arrowx &gt; 0 &amp;&amp; arrowy &gt; 0)
         {
-        arrow = draw_sprite(spr_marrow,0,arrowx,arrowy)
+        if (keyboard_check_direct(vk_enter))
+        {
+            arrow = draw_sprite(spr_marrow,1,arrowx,arrowy)
+            draw_text_color(menuEntry[entrySelected].x,menuEntry[entrySelected].y,menuEntry[entrySelected].txt,c_dkgray,c_dkgray,c_dkgray,c_dkgray,.60)
+            
         }
-
+        else
+            arrow = draw_sprite(spr_marrow,0,arrowx,arrowy)
+        }
+    }
 
 
 
