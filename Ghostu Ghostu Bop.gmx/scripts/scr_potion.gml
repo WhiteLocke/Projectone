@@ -1,8 +1,15 @@
-/* Assume argument0 is a char's object id */
-var character = argument0
+/* Use a potion on the target
 
+Params:
 
-if ( (character).currentHP + 100 > (character).maxHP)
-    argument0.currentHP = argument0.maxHP
+argument0 - obj_character to use the potion on
+return - false if the item was not used, true if it was*/
+
+/* Potions can be used on enemy or ally*/
+target = argument0
+if ( (target).currentHP + 100 > (target).maxHP)
+    target.currentHP = target.maxHP
 else
-    argument0.currentHP += 100
+    target.currentHP += 100
+
+return true

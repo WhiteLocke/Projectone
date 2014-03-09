@@ -1,5 +1,4 @@
 /* 
-TODO: GET ARRAY PASSING WORKING
 
 Required Params: 
 scriptParams[] (argument0) - The array of parameters
@@ -22,4 +21,4 @@ with(obj_menu){
 magicSubmenu.inFocus = true
 
 //set parent id
-magicSubmenu.parentID = argument0
+magicSubmenu.parentID = argument0[0]

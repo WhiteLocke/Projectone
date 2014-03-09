@@ -32,7 +32,7 @@ inventory[0,1] = 3
 numItems = 1
 
 //The player's party is a 1D array
-partyMembers = 1
+numPartyMembers = 1
 party[0] = instance_create(500,200,obj_character_noname)
 </string>
           </argument>

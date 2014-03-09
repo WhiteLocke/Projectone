@@ -36,6 +36,7 @@ TARGET_ENEMY_ALL - 4
 */
 
 type = ITEM_CONSUMABLE
+target = 0
 
 //consumable items need an associated script
 script = ''

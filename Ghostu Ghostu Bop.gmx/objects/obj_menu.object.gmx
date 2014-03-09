@@ -118,7 +118,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
             if(script_exists(menuEntry[entrySelected].script)){
                 
                 //TODO: MAKE ARRAY PASSING WORK
-                script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams[0])
+                script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams,menuEntry[entrySelected].numScriptParams)
             }
     }
     if(keyboard_check_pressed(vk_up))

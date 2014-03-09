@@ -30,6 +30,7 @@ name = 'Potion'
 description = 'Heals 100 HP'
 price = 100
 sellable = true
+target = TARGET_ANY_ONE_DEFAULT_ALLY
 script = scr_potion
 </string>
           </argument>

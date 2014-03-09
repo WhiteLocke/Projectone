@@ -37,9 +37,17 @@ height = room_height/3
 numEntries = Player.numItems
 visibleEntries = 5
 for(var i = 0; i &lt; numEntries; i++){
-    menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
-    menuEntry[i].txt = Player.inventory[i,0].name
-    menuEntry[i].script = Player.inventory[i,0].script
+    if(Player.inventory[i,1] &gt; 0)
+    {
+        menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
+        menuEntry[i].txt = Player.inventory[i,0].name+" x"+string(Player.inventory[i,1])
+        menuEntry[i].script = scr_use_item_battle
+        
+        //Pass the location of the item object to our "use item" script
+        menuEntry[i].numScriptParams = 2
+        menuEntry[i].scriptParams[0] = i
+        menuEntry[i].scriptParams[1] = id
+    }
 }
 </string>
           </argument>

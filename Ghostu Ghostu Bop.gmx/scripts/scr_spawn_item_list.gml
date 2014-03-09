@@ -18,4 +18,4 @@ with(obj_menu){
 submenu.inFocus = true
 
 //set parent id
-submenu.parentID = argument0
+submenu.parentID = argument0[0]

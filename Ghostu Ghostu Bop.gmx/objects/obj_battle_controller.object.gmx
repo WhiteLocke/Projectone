@@ -74,7 +74,7 @@ instance_create(x,y,Player.party[0].battleMenuObject)
 draw_sprite_stretched(spr_menu,0,statusX,statusY,statusWidth,statusHeight);
 draw_set_font(f_battleStatus)
 
-for(var i = 0; i &lt; Player.partyMembers; i++)
+for(var i = 0; i &lt; Player.numPartyMembers; i++)
 {
     hpString = "HP: " + string(Player.party[0].currentHP)+" / "+string(Player.party[0].maxHP)
     draw_text(statusX+32,statusY+16+32*i,Player.party[0].name+"       "+hpString)
