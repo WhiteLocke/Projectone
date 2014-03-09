@@ -8,6 +8,7 @@
     <sound>sound\soundbeat</sound>
     <sound>sound\snd_select</sound>
     <sound>sound\snd_back</sound>
+    <sound>sound\test_song</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\hero_idle</sprite>
@@ -91,6 +92,7 @@
     <objects name="Battle">
       <object>objects\obj_battle_controller</object>
     </objects>
+    <object>objects\obj_song</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\battle_test</room>
