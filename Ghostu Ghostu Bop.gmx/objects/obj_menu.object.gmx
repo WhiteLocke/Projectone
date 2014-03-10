@@ -139,7 +139,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
     entrySelected = entrySelected mod numEntries
     
     arrowy = menuEntry[entrySelected].y + .5*menuSpace + 3
-    arrowx = x+width*.2
+    arrowx = x+width*.185
     
         
 }
@@ -205,12 +205,15 @@ if(inFocus)
         {
         if (keyboard_check_direct(vk_enter))
         {
+            
             arrow = draw_sprite(spr_marrow,1,arrowx,arrowy)
             draw_text_color(menuEntry[entrySelected].x,menuEntry[entrySelected].y,menuEntry[entrySelected].txt,c_dkgray,c_dkgray,c_dkgray,c_dkgray,.60)
             
         }
         else
+            draw_sprite(spr_marrow,2,arrowx+2,arrowy+2)
             arrow = draw_sprite(spr_marrow,0,arrowx,arrowy)
+            
         }
     }
 
