@@ -25,6 +25,7 @@
       <sprite>sprites\spr_marrow</sprite>
       <sprite>sprites\spr_menu</sprite>
       <sprite>sprites\gamemenuconcept</sprite>
+      <sprite>sprites\spr_textbox</sprite>
     </sprites>
     <sprites name="Characters">
       <sprites name="Noname">
@@ -65,6 +66,7 @@
     </objects>
     <object>objects\obj_parsoul</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_textbox</object>
     <object>objects\par_wall</object>
     <object>objects\obj_hero</object>
     <object>objects\obj_soul</object>
