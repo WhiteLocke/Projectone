@@ -23,9 +23,17 @@
     <sprite>sprites\hero_fall</sprite>
     <sprites name="Menus">
       <sprite>sprites\spr_marrow</sprite>
+      <sprite>sprites\spr_yellowbar</sprite>
+      <sprite>sprites\spr_redbar</sprite>
       <sprite>sprites\spr_menu</sprite>
-      <sprite>sprites\gamemenuconcept</sprite>
       <sprite>sprites\spr_textbox</sprite>
+      <sprites name="Menu Concepts">
+        <sprite>sprites\gamemenuconcept</sprite>
+        <sprite>sprites\startandtargetselect</sprite>
+        <sprite>sprites\actionselect</sprite>
+        <sprite>sprites\defend</sprite>
+        <sprite>sprites\spellselect</sprite>
+      </sprites>
     </sprites>
     <sprites name="Characters">
       <sprites name="Noname">
