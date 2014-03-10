@@ -190,8 +190,11 @@ menubox = draw_sprite_stretched(spr_menu,0,x,y,width,height);
 
 for (i = 0; i &lt;  numEntries; i++)
 {
-    if (inFocus) 
+    if (inFocus)
+    { 
+        draw_text_color(menuEntry[i].x+2,menuEntry[i].y+2,menuEntry[i].txt,c_black,c_black,c_black,c_black,1)
         draw_text_color(menuEntry[i].x,menuEntry[i].y,menuEntry[i].txt,c_white,c_white,c_white,c_white,1)
+    }
     else
         draw_text_color(menuEntry[entrySelected].x,menuEntry[entrySelected].y,menuEntry[entrySelected].txt,c_black,c_black,c_black,c_black,.15)
 }

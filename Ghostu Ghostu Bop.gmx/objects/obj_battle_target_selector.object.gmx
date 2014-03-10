@@ -135,7 +135,7 @@ arrowy = y
             arrowy = Player.party[targetSelected].y
     }
     
-    draw_sprite(spr_marrow,1,arrowx-10,arrowy+32)
+    draw_sprite(spr_marrow,0,arrowx-10,arrowy+32)
 }
 </string>
           </argument>
