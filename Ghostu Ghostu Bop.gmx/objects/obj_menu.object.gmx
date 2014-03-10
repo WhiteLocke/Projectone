@@ -211,9 +211,11 @@ if(inFocus)
             
         }
         else
+        {
             draw_sprite(spr_marrow,2,arrowx+2,arrowy+2)
             arrow = draw_sprite(spr_marrow,0,arrowx,arrowy)
             
+        }
         }
     }
 
