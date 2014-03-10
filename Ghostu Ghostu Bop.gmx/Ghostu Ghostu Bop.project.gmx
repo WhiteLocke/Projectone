@@ -24,6 +24,7 @@
     <sprites name="Menus">
       <sprite>sprites\spr_marrow</sprite>
       <sprite>sprites\spr_menu</sprite>
+      <sprite>sprites\gamemenuconcept</sprite>
     </sprites>
     <sprites name="Characters">
       <sprites name="Noname">
