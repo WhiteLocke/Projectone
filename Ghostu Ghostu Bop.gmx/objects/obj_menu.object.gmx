@@ -109,15 +109,23 @@ arrowy = -1;
             <string>
 /* Only draw if we have entries and are inFocus */
 if(inFocus &amp;&amp; numEntries &gt; 0){
-   
-    
+       
+/* This sets the text help box. Note that if it's empty, or we're not in battle
+        this does nothing */
+
+//draw the help text
+
+    if(instance_exists(obj_battle_help_box))
+        {
+            obj_battle_help_box.text = menuEntry[entrySelected].battleHelpText
+        }
+        
     
     if(keyboard_check_pressed(vk_enter))
     {
+            
             audio_play_sound(soundbeat,10,0)
             if(script_exists(menuEntry[entrySelected].script)){
-                
-                //TODO: MAKE ARRAY PASSING WORK
                 script_execute(menuEntry[entrySelected].script,menuEntry[entrySelected].scriptParams,menuEntry[entrySelected].numScriptParams)
             }
     }
@@ -158,6 +166,7 @@ if(keyboard_check_pressed(vk_escape))
             instance_destroy()
         }
     }
+
 </string>
           </argument>
         </arguments>
@@ -199,7 +208,7 @@ for (i = 0; i &lt;  numEntries; i++)
         draw_text_color(menuEntry[entrySelected].x,menuEntry[entrySelected].y,menuEntry[entrySelected].txt,c_black,c_black,c_black,c_black,.15)
 }
    //draw the arrow
-if(inFocus)
+if(inFocus &amp;&amp; numEntries &gt; 0)
     {
     if (arrowx &gt; 0 &amp;&amp; arrowy &gt; 0)
         {

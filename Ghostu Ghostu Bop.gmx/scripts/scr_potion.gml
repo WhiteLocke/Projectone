@@ -11,5 +11,9 @@ if ( (target).currentHP + 100 > (target).maxHP)
     target.currentHP = target.maxHP
 else
     target.currentHP += 100
+    
+Player.inventory[ITEM_POTION,1] -= 1
+if(Player.inventory[ITEM_POTION,1] = 0)
+    Player.numItems -= 1
 
-return true
+//Maybe if we're in battle, play an animation

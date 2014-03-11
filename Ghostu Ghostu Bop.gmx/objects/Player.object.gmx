@@ -26,14 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>// The player's inventory is a 2D array. column1 is the item, column2 is the quantity
-inventory[0,0] = instance_create(x,y,obj_potion)
-inventory[0,1] = 3
+inventory[ITEM_POTION,0] = instance_create(x,y,obj_potion)
+inventory[ITEM_POTION,1] = 3
 // The number of distinct items in the inventory, aka, the number of entries in column1
 numItems = 1
 
 //The player's party is a 1D array
-numPartyMembers = 1
+numPartyMembers = 2
 party[0] = instance_create(500,200,obj_character_noname)
+party[1] = instance_create(500,200,obj_character_you)
 </string>
           </argument>
         </arguments>

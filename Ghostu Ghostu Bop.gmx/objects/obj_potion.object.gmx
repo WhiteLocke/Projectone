@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited()
 name = 'Potion'
-description = 'Heals 100 HP'
+description = 'Heals 100 HP to one ally or enemy'
 price = 100
 sellable = true
 target = TARGET_ANY_ONE_DEFAULT_ALLY

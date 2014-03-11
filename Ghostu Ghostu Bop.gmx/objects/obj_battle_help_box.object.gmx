@@ -25,33 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* TODO: Choose the enemies */
+            <string>depth = -10
+/* width and height of the window */
+width = 0
+height = 0
 
+text = ''
 
-/* Set the characters in appropriate spots */
-for(var i = 0; i &lt; Player.numPartyMembers; i++){
-    Player.party[i].x = 512
-    Player.party[i].y = 32+(i*100)
-}
-
-/* Setup the status menu */
-
-statusX = 200
-statusY = (room_height/3)+(room_height/3)
-statusWidth = room_width*.65
-statusHeight = room_height/3
-
-/* Start the timer ? */
-
-/* Spawn battle menu 
-    this needs to be done elsewhere probably, based on speed
-    but lets just spawn a menu for the first party member for now
-*/
-
-instance_create(x,y,Player.party[0].battleMenuObject)
-
-/* Spawn help text box */
-instance_create(192,32,obj_battle_help_box)
 </string>
           </argument>
         </arguments>
@@ -74,14 +54,23 @@ instance_create(192,32,obj_battle_help_box)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Draw the character status box */
-draw_sprite_stretched(spr_menu,0,statusX,statusY,statusWidth,statusHeight);
-draw_set_font(f_battleStatus)
+            <string>
 
-for(var i = 0; i &lt; Player.numPartyMembers; i++)
+if(text != '')
 {
-    hpString = "HP: " + string(Player.party[i].currentHP)+" / "+string(Player.party[i].maxHP)
-    draw_text(statusX+32,statusY+16+32*i,Player.party[i].name+"       "+hpString)
+    //The extra amount &gt; text width to stretch the box
+    var fudgeFactor=20
+
+
+    //Center the text
+    draw_set_halign(fa_center)
+    draw_set_font(f_menuW)
+    menubox = draw_sprite_stretched(spr_textbox,0,view_wport/2-string_width(text)/2-fudgeFactor/2,y,string_width(text)+fudgeFactor,50);  
+    draw_text_color(view_wport/2,y+7,text,c_black,c_black,c_black,c_black,1)
+    draw_text_color(view_wport/2,y+5,text,c_white,c_white,c_white,c_white,1)
+    
+    //Left justify by default
+    draw_set_halign(fa_left)
 }
 </string>
           </argument>

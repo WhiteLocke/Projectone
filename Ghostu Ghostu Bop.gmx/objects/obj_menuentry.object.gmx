@@ -29,6 +29,10 @@
 numScriptParams = 0
 scriptParams[0] = 0
 txt = '';
+
+//This is for the text bar at the top.
+// if it is empty, it is not drawn
+battleHelpText=''
 </string>
           </argument>
         </arguments>
