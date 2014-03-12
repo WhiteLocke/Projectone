@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>/* TODO: Choose the enemies */
-
-
 /* Set the characters in appropriate spots */
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
     Player.party[i].x = 512
