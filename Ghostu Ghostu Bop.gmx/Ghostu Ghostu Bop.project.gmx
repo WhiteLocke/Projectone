@@ -48,11 +48,15 @@
         <sprite>sprites\spr_noname_dead</sprite>
         <sprite>sprites\spr_noname_yay</sprite>
       </sprites>
+      <sprites name="NPCs">
+        <sprite>sprites\spr_mother_noname</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\sprite29</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -123,6 +127,7 @@
       <object>objects\obj_battle_help_box</object>
     </objects>
     <object>objects\obj_song</object>
+    <object>objects\obj_npc</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\battle_test</room>
