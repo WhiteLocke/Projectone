@@ -26,10 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>/* TODO: Choose the enemies */
-/* Set the characters in appropriate spots */
+/* Set the characters in appropriate spots BOTH OF THESE SPRITES
+ARE DWARVES AND THERE ARE ONLY TWO OF THEM BUT I THINK THIS IS CLOSE*/
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
-    Player.party[i].x = 512
-    Player.party[i].y = 32+(i*100)
+    Player.party[i].x = 512+(i*16)
+    Player.party[i].y = 150+(i*40)
 }
 
 /* Setup the status menu */

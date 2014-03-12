@@ -25,6 +25,7 @@
       <sprite>sprites\spr_marrow</sprite>
       <sprite>sprites\spr_yellowbar</sprite>
       <sprite>sprites\spr_redbar</sprite>
+      <sprite>sprites\spr_cursor</sprite>
       <sprite>sprites\spr_menu</sprite>
       <sprite>sprites\spr_textbox</sprite>
       <sprites name="Menu Concepts">

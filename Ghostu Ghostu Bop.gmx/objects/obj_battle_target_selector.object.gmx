@@ -147,7 +147,9 @@ arrowy = y
             <kind>1</kind>
             <string>if(defaultSet){
     
-    draw_sprite(spr_marrow,0,arrowx-10,arrowy+32)
+    draw_sprite(spr_cursor,image_index,arrowx-1,arrowy-46)
+    image_speed = .5
+    depth = -10
 }
 </string>
           </argument>
