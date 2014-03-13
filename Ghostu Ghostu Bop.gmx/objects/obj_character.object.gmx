@@ -35,13 +35,17 @@ agility = 10
 willpower = 10
 vitality = 10
 maxHP = 1000
+maxMP = 10
 
 /* Calculated or transitory stats */
 currentHP = 900
+currentMP = 10
 
 
+/* BATTLE STUFF */
 /* My battle menu */
 battleMenu = -1
+currentInitiative = 0
 </string>
           </argument>
         </arguments>

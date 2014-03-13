@@ -43,6 +43,8 @@ inFocus = true
 /* this is the object id of a parent menu, if this is a submenu*/
 parentID = -1
 
+/* This is used to tell us if the action has been completed */
+actionComplete = false
 
 
 /* THESE ARE AUTOMATICALLY SET */
@@ -106,8 +108,8 @@ arrowy = -1;
           <argument>
             <kind>1</kind>
             <string>
-/* Only draw if we have entries and are inFocus */
-if(inFocus &amp;&amp; numEntries &gt; 0){
+/* Only draw if we have entries and are inFocus and are not finished */
+if(inFocus &amp;&amp; numEntries &gt; 0 &amp; !actionComplete){
        
 /* This sets the text help box. Note that if it's empty, or we're not in battle
         this does nothing */
@@ -151,6 +153,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
     
         
 }
+
 if(keyboard_check_pressed(vk_escape))
     { 
     //return to the parent menu
@@ -166,7 +169,6 @@ if(keyboard_check_pressed(vk_escape))
             instance_destroy()
         }
     }
-
 </string>
           </argument>
         </arguments>

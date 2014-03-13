@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,9 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//tmp variable
+            <string>randomize()
+
+//tmp variable
 playing = false
 
+/* A queue for our action menus */
+menuQueue = ds_queue_create()
+battleMenuActive = false
 
 /* TODO: Choose the enemies */
 enemies[0] = instance_create(32,0,obj_enemy_battle)
@@ -43,33 +48,34 @@ numEnemies = 1
     random initiative
     
     TODO
-
 */
+
 allyActive = 0
 enemyActive = -1
 
 /* Set the characters in appropriate spots BOTH OF THESE SPRITES
 ARE DWARVES AND THERE ARE ONLY TWO OF THEM BUT I THINK THIS IS CLOSE*/
+/* We'll give all characters random starting values for initiative */
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
-    Player.party[i].x = 512+(i*16)
-    Player.party[i].y = 175+(i*40)
+    Player.party[i].x = .75*room_width+(i*16)
+    Player.party[i].y = .3*room_height+(i*60)
+    Player.party[i].currentInitiative = irandom(MAX_INITIATIVE)
 }
 
 /* Setup the status menu */
 
-statusX = 200
+statusX = room_width*.35
 statusY = (room_height/3)+(room_height/3)
 statusWidth = room_width*.65
 statusHeight = room_height/3
 
-/* Start the timer ? */
+/* enemy menu */
+enemyMenuX = 0
+enemyMenuY = (2/3)*(room_height)
+enemyMenuWidth = room_width*.35
+enemyMenuHeight = room_height/3
+    
 
-/* Spawn battle menu 
-    this needs to be done elsewhere probably, based on speed
-    but lets just spawn a menu for the first party member for now
-*/
-
-instance_create(x,y,Player.party[0].battleMenuObject)
 
 /* Spawn help text box */
 instance_create(192,32,obj_battle_help_box)
@@ -95,7 +101,8 @@ instance_create(192,32,obj_battle_help_box)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(var i = 0; i &lt; numEnemies; i++){
+            <string>/* TODO: Recognize end of battle */
+for(var i = 0; i &lt; numEnemies; i++){
     if(enemies[i].currentHP &lt; 1 and !playing){
         audio_stop_all()
         audio_play_sound(fanfare,1,true)
@@ -103,8 +110,35 @@ instance_create(192,32,obj_battle_help_box)
         }
         }
         
+/* Spawn battle menu 
+    this needs to be done elsewhere probably, based on speed
+    but lets just spawn a menu for the first party member for now
+*/
+if(!ds_queue_empty(menuQueue) and !battleMenuActive)
+{
+    var menuToSpawn = ds_queue_dequeue(menuQueue)
+    instance_create(x,y,menuToSpawn)
+    battleMenuActive = true
+    allyActive = menuToSpawn.owningCharacter
+}
+        
+    
+/* Calculate speed increment */
+for(var i = 0; i &lt; Player.numPartyMembers; i++){
+    if(Player.party[i].currentInitiative &lt; MAX_INITIATIVE)
+    {
+        Player.party[i].currentInitiative += scr_initiative_algorithm(Player.party[i].agility)
+        // if they are now over initiative, spawn them a menu
+        if(Player.party[i].currentInitiative &gt;= MAX_INITIATIVE)
+            ds_queue_enqueue(menuQueue,Player.party[i].battleMenuObject)
+    }
+        
+}
+        
+/* Bring up the pause menu */
 if(keyboard_check_pressed(vk_shift))
     instance_create(x,y,obj_selectmenu)
+
 </string>
           </argument>
         </arguments>
@@ -129,12 +163,29 @@ if(keyboard_check_pressed(vk_shift))
             <kind>1</kind>
             <string>/* Draw the character status box */
 draw_sprite_stretched(spr_menu,0,statusX,statusY,statusWidth,statusHeight);
+draw_sprite_stretched(spr_menu,0,enemyMenuX,enemyMenuY,enemyMenuWidth,enemyMenuHeight);
 draw_set_font(f_battleStatus)
 
 for(var i = 0; i &lt; Player.numPartyMembers; i++)
 {
+    /* Draw the name, hp mp*/
     hpString = "HP: " + string(Player.party[i].currentHP)+" / "+string(Player.party[i].maxHP)
-    draw_text(statusX+32,statusY+16+32*i,Player.party[i].name+"       "+hpString)
+    mpString = "MP: " + string(Player.party[i].currentMP)+" / "+string(Player.party[i].maxMP)
+    draw_text(statusX+32,statusY+16+50*i,Player.party[i].name)
+    draw_set_halign(fa_right)
+    draw_text(room_width-20,statusY+16+50*i,hpString+"    "+mpString)
+    draw_set_halign(fa_left)
+    
+    /* Draw the bar */
+    draw_sprite_stretched(spr_redbar,0,statusX+32,statusY+39+50*i,.9*statusWidth,sprite_get_height(spr_redbar))
+    
+    /* Draw the initiative */
+    draw_sprite_stretched(spr_yellowbar,0,statusX+32,statusY+39+50*i,(Player.party[i].currentInitiative/65535)*(.9*statusWidth),sprite_get_height(spr_redbar))
+}
+
+for(var i = 0; i &lt; numEnemies; i++)
+{
+    draw_text(enemyMenuX+32,enemyMenuY+16+32*i,enemies[i].name)
 }
 </string>
           </argument>

@@ -77,8 +77,10 @@
       <script>scripts\scr_dummy_spellcast.gml</script>
       <script>scripts\scr_choose_target_battle.gml</script>
       <script>scripts\scr_attack_battle.gml</script>
-      <script>scripts\script9.gml</script>
       <script>scripts\scr_back.gml</script>
+      <scripts name="algorithms">
+        <script>scripts\scr_initiative_algorithm.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -124,6 +126,7 @@
         <object>objects\obj_battlemenu</object>
         <object>objects\obj_magic_submenu</object>
         <object>objects\obj_noname_battlemenu</object>
+        <object>objects\obj_you_battlemenu</object>
         <object>objects\obj_item_submenu</object>
         <object>objects\obj_selectmenu</object>
       </objects>
@@ -141,7 +144,7 @@
     <room>rooms\menu</room>
     <room>rooms\room0</room>
   </rooms>
-  <constants number="13">
+  <constants number="14">
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ENEMY">13</constant>
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ALLY">12</constant>
     <constant name="TARGET_ALL">9</constant>
@@ -155,6 +158,7 @@
     <constant name="TARGET_ENEMY_ALL">4</constant>
     <constant name="ITEM_CONSUMABLE">1</constant>
     <constant name="ITEM_POTION">0</constant>
+    <constant name="MAX_INITIATIVE">65535</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

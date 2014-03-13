@@ -6,9 +6,9 @@ argument0 - the target Character for the attack
 /* Who is active? */
 attacker = -1
 if(obj_battle_controller.allyActive > -1)
-    attacker = Player.party[obj_battle_controller.allyActive]
+    attacker = obj_battle_controller.allyActive
 else
-    attacker = obj_battle_controller.enemy[obj_battle_controller.enemyActive]
+    attacker = obj_battle_controller.enemyActive
     
 target = argument0
 argument0.currentHP = argument0.currentHP - 10
