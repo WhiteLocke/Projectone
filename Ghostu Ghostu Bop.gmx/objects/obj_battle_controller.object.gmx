@@ -52,7 +52,7 @@ enemyActive = -1
 ARE DWARVES AND THERE ARE ONLY TWO OF THEM BUT I THINK THIS IS CLOSE*/
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
     Player.party[i].x = 512+(i*16)
-    Player.party[i].y = 150+(i*40)
+    Player.party[i].y = 175+(i*40)
 }
 
 /* Setup the status menu */
