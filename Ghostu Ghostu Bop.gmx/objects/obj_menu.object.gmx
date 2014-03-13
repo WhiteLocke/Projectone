@@ -55,10 +55,6 @@ entrySelected = 0
 
 arrowx = -1;
 arrowy = -1;
-
-//create pause menu (not visible)
-instance_create(x,y,obj_selectcaller)
-
 </string>
           </argument>
         </arguments>

@@ -63,6 +63,83 @@ menuEntry[1].script = scr_back
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+/* Only draw if we have entries and are inFocus */
+if(inFocus &amp;&amp; numEntries &gt; 0){
+       
+/* This sets the text help box. Note that if it's empty, or we're not in battle
+        this does nothing */
+
+//draw the help text
+
+    if(instance_exists(obj_battle_help_box))
+        {
+            obj_battle_help_box.text = menuEntry[entrySelected].battleHelpText
+        }
+        
+
+    if(keyboard_check_pressed(vk_up))
+    {
+        entrySelected -= 1;
+        audio_play_sound(snd_select,10,0)
+    }
+    if(keyboard_check_pressed(vk_down)) 
+    {
+        entrySelected += 1;
+        audio_play_sound(snd_select,10,0)
+    }
+   
+    //This handles wraparound
+    if(entrySelected &lt; 0)
+        entrySelected = numEntries-1
+        //Technically this should do it alone, but GameMaker doesn't
+        //handle modulus of negative numbers properly
+    entrySelected = entrySelected mod numEntries
+    
+    arrowy = menuEntry[entrySelected].y + .5*menuSpace + 3
+    arrowx = x+width*.185
+    
+        if(keyboard_check_pressed(vk_enter))
+    {
+            /*Hard coded*/
+            if(entrySelected = 0)
+                scr_end_game()
+            else{
+                instance_activate_all()
+                instance_destroy()
+            }
+    }
+    
+        
+}
+if(keyboard_check_pressed(vk_escape))
+    { 
+                instance_activate_all()
+                instance_destroy()
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

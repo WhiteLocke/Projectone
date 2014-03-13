@@ -102,6 +102,9 @@ instance_create(192,32,obj_battle_help_box)
         playing = true
         }
         }
+        
+if(keyboard_check_pressed(vk_shift))
+    instance_create(x,y,obj_selectmenu)
 </string>
           </argument>
         </arguments>
