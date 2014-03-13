@@ -25,7 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* TODO: Choose the enemies */
+            <string>//tmp variable
+playing = false
+
+
+/* TODO: Choose the enemies */
+enemies[0] = instance_create(32,0,obj_enemy_battle)
+numEnemies = 1
+
+
+/* Who is active? 
+    A positive number represents the character active
+    (i.e., Player.party[activeAlly] tells us who is acting right now
+    and enemies[activeEnemy] tells us which enemy is acting
+    
+    if activeAlly = -1, an enemy is acting, and vice versa. We will start the battle with 
+    random initiative
+    
+    TODO
+
+*/
+allyActive = 0
+enemyActive = -1
+
 /* Set the characters in appropriate spots BOTH OF THESE SPRITES
 ARE DWARVES AND THERE ARE ONLY TWO OF THEM BUT I THINK THIS IS CLOSE*/
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
@@ -51,6 +73,35 @@ instance_create(x,y,Player.party[0].battleMenuObject)
 
 /* Spawn help text box */
 instance_create(192,32,obj_battle_help_box)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(var i = 0; i &lt; numEnemies; i++){
+    if(enemies[i].currentHP &lt; 1 and !playing){
+        audio_stop_all()
+        audio_play_sound(fanfare,1,true)
+        playing = true
+        }
+        }
 </string>
           </argument>
         </arguments>

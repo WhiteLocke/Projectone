@@ -43,9 +43,11 @@ for(var i = 0; i &lt; numEntries; i++){
 
 /* Attack */
 menuEntry[0].txt = 'Attack'
-//menuEntry[0].script = scr_attack
-menuEntry[0].numScriptParams = 1
-menuEntry[0].scriptParams[0] = id
+menuEntry[0].script = scr_choose_target_battle
+menuEntry[0].numScriptParams = 3
+menuEntry[0].scriptParams[0] = TARGET_ANY_ONE_DEFAULT_ENEMY
+menuEntry[0].scriptParams[1] = id
+menuEntry[0].scriptParams[2] = scr_attack_battle
 
 
 menuEntry[1].txt = 'Magic'

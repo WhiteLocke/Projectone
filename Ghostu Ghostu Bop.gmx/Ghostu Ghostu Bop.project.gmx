@@ -9,6 +9,8 @@
     <sound>sound\snd_select</sound>
     <sound>sound\snd_back</sound>
     <sound>sound\test_song</sound>
+    <sound>sound\fanfare</sound>
+    <sound>sound\ff6_jump</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\hero_idle</sprite>
@@ -73,6 +75,8 @@
     <scripts name="BattleActions">
       <script>scripts\scr_dummy_spellcast.gml</script>
       <script>scripts\scr_choose_target_battle.gml</script>
+      <script>scripts\scr_attack_battle.gml</script>
+      <script>scripts\script9.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

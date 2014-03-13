@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(test_song,20,true)
+            <string>mySong = audio_play_sound(test_song,20,true)
 </string>
           </argument>
         </arguments>

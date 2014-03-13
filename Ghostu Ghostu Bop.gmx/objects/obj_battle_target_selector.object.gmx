@@ -79,7 +79,12 @@ arrowy = y
             obj_battle_help_box.text = Player.party[targetSelected].name
     }         
 
-
+    if(enemySelected &amp;! groupSelected)
+    {
+            arrowx = obj_battle_controller.enemies[targetSelected].x
+            arrowy = obj_battle_controller.enemies[targetSelected].y
+            obj_battle_help_box.text = obj_battle_controller.enemies[targetSelected].name
+    }
     
     
     /* END ARROW DRAWING */
@@ -93,6 +98,15 @@ arrowy = y
                     targetSelected += 1
 
             }      
+            
+            /* We are selecting enemies */     
+            if(enemySelected){
+                if (targetSelected = obj_battle_controller.numEnemies-1)
+                    targetSelected = 0
+                else
+                    targetSelected += 1
+
+            }      
     }
         if (keyboard_check_pressed(vk_up)){
             if(allySelected){
@@ -101,11 +115,20 @@ arrowy = y
                 else
                     targetSelected -= 1
             }
+            else if(enemySelected){
+                if (targetSelected = 0)
+                    targetSelected = obj_battle_controller.numEnemies-1
+                else
+                    targetSelected -= 1
+            
+            }
         }
        if(keyboard_check_pressed(vk_enter)){
             if(groupSelected = false){
                 if(allySelected)
                    script_execute(script,Player.party[targetSelected])
+                if(enemySelected)
+                   script_execute(script,obj_battle_controller.enemies[targetSelected])
             }
         }
     
