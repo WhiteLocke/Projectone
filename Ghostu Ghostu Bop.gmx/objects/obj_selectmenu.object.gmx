@@ -49,7 +49,6 @@ for(var i = 0; i &lt; numEntries; i++){
 menuEntry[0].txt = 'Quit Game'
 menuEntry[0].script = scr_end_game
 
-//WHAT THE FUUUUUUCK! I think this is broken because of bad parenting.
 menuEntry[1].txt = 'Back'
 menuEntry[1].script = scr_back
 
