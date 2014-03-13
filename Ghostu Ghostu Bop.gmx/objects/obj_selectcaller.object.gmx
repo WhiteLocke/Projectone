@@ -50,7 +50,8 @@
             <kind>1</kind>
             <string> if(keyboard_check_pressed(vk_shift))
     {
-        script_execute(scr_spawn_selectmenu);
+        selectSubmenu = instance_create(x,y,obj_selectmenu)
+        selectSubmenu.inFocus = true
         audio_play_sound(snd_select,10,0);
     }
 </string>

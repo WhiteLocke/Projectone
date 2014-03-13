@@ -70,7 +70,6 @@
     <script>scripts\script2.gml</script>
     <scripts name="Menu">
       <script>scripts\scr_spawn_magic_list.gml</script>
-      <script>scripts\scr_spawn_selectmenu.gml</script>
       <script>scripts\scr_spawn_item_list.gml</script>
     </scripts>
     <scripts name="BattleActions">
