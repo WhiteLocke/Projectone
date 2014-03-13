@@ -70,13 +70,16 @@
     <script>scripts\script2.gml</script>
     <scripts name="Menu">
       <script>scripts\scr_spawn_magic_list.gml</script>
+      <script>scripts\scr_spawn_selectmenu.gml</script>
       <script>scripts\scr_spawn_item_list.gml</script>
     </scripts>
     <scripts name="BattleActions">
+      <script>scripts\scr_end_game.gml</script>
       <script>scripts\scr_dummy_spellcast.gml</script>
       <script>scripts\scr_choose_target_battle.gml</script>
       <script>scripts\scr_attack_battle.gml</script>
       <script>scripts\script9.gml</script>
+      <script>scripts\scr_back.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -123,6 +126,7 @@
         <object>objects\obj_magic_submenu</object>
         <object>objects\obj_noname_battlemenu</object>
         <object>objects\obj_item_submenu</object>
+        <object>objects\obj_selectmenu</object>
       </objects>
     </objects>
     <objects name="Battle">
