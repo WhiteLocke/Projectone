@@ -56,6 +56,9 @@ entrySelected = 0
 arrowx = -1;
 arrowy = -1;
 
+//create pause menu (not visible)
+instance_create(x,y,obj_selectcaller)
+
 </string>
           </argument>
         </arguments>
@@ -139,11 +142,7 @@ if(inFocus &amp;&amp; numEntries &gt; 0){
         entrySelected += 1;
         audio_play_sound(snd_select,10,0)
     }
-    if(keyboard_check_pressed(vk_shift))
-    {
-        script_execute(scr_spawn_selectmenu);
-        audio_play_sound(snd_select,10,0);
-    }
+   
     //This handles wraparound
     if(entrySelected &lt; 0)
         entrySelected = numEntries-1

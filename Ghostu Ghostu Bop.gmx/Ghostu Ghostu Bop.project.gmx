@@ -127,6 +127,7 @@
         <object>objects\obj_noname_battlemenu</object>
         <object>objects\obj_item_submenu</object>
         <object>objects\obj_selectmenu</object>
+        <object>objects\obj_selectcaller</object>
       </objects>
     </objects>
     <objects name="Battle">

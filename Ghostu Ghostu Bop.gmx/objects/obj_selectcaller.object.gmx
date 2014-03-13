@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_menu</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,39 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Pause the game (hopefully)
-instance_deactivate_all(true);
-
-
-event_inherited()
-x = ((room_width*.5)-(room_width*.25/2))
-y = ((room_height*.5)-(room_height*.25/2))
-
-//Since we're changing y, we need to calculate our own 
-menuEntryStartY = y+.25*menuSpace
- 
-width = 175
-height = 75  
-
-numEntries = 2
-visibleEntries = 2
-
-for(var i = 0; i &lt; numEntries; i++){
-    menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
-}
-
-menuEntry[0].txt = 'Quit Game'
-menuEntry[0].script = scr_end_game
-
-//WHAT THE FUUUUUUCK! I think this is broken because of bad parenting.
-menuEntry[1].txt = 'Back'
-menuEntry[1].script = scr_back
-
-
-
- 
-    
-
+            <string>//no comment
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string> if(keyboard_check_pressed(vk_shift))
+    {
+        script_execute(scr_spawn_selectmenu);
+        audio_play_sound(snd_select,10,0);
+    }
 </string>
           </argument>
         </arguments>

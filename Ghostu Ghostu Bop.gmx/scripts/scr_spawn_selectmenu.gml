@@ -13,14 +13,8 @@ add parameter for which character owns this skill list
 selectSubmenu = instance_create(x,y,obj_selectmenu)
 
 //turn off focus on other windows
-with(obj_menu){
-    inFocus=false
-}
 
     //turn on focus on magic submenu
 selectSubmenu.inFocus = true
 
-//set parent id
-//This with the normal answer filled in equals error. I think cause 
-//of the way the initial select menu comes into existence
-selectSubmenu.parentID = obj_battlemenu
+
