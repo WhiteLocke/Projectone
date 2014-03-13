@@ -21,4 +21,6 @@ with(obj_menu){
 selectSubmenu.inFocus = true
 
 //set parent id
+//This with the normal answer filled in equals error. I think cause 
+//of the way the initial select menu comes into existence
 selectSubmenu.parentID = obj_battlemenu
