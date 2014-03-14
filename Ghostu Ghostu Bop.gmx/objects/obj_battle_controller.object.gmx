@@ -34,6 +34,10 @@ playing = false
 menuQueue = ds_queue_create()
 battleMenuActive = false
 
+/* A queue for our actions */
+actionQueue = ds_queue_create()
+actionActive = false
+
 /* TODO: Choose the enemies */
 enemies[0] = instance_create(32,0,obj_enemy_battle)
 numEnemies = 1
@@ -78,7 +82,7 @@ enemyMenuHeight = room_height/3
 
 
 /* Spawn help text box */
-instance_create(192,32,obj_battle_help_box)
+instance_create(192,room_height-32,obj_battle_help_box)
 </string>
           </argument>
         </arguments>
@@ -103,12 +107,29 @@ instance_create(192,32,obj_battle_help_box)
             <kind>1</kind>
             <string>/* TODO: Recognize end of battle */
 for(var i = 0; i &lt; numEnemies; i++){
-    if(enemies[i].currentHP &lt; 1 and !playing){
-        audio_stop_all()
-        audio_play_sound(fanfare,1,true)
-        playing = true
+    if(enemies[i].currentHP &lt; 1){
+        with(enemies[i])
+            instance_destroy()
+        
+            //remove the enemy from our list
+        for(var j = i; j &lt; numEnemies-1; j++)
+        {
+            enemies[j] = enemies[j+1]
         }
+        
+        numEnemies--
+        
+        //Need to stop the battle
+        if(numEnemies = 0)
+        {    
+           /* audio_stop_all()
+            audio_play_sound(fanfare,1,true)
+            playing = true*/
+            show_message("Battle done!")
+            game_end()
         }
+    }
+}
         
 /* Spawn battle menu 
     this needs to be done elsewhere probably, based on speed
@@ -133,6 +154,15 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
             ds_queue_enqueue(menuQueue,Player.party[i].battleMenuObject)
     }
         
+}
+
+/* Execute any actions */
+if(!ds_queue_empty(actionQueue) and !actionActive)
+{
+    action = ds_queue_dequeue(actionQueue)
+    script_execute(action.script,action)
+    actionActive = true
+
 }
         
 /* Bring up the pause menu */

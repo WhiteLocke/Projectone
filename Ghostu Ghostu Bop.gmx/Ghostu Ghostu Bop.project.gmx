@@ -64,22 +64,25 @@
   <scripts name="scripts">
     <script>scripts\scr_ai.gml</script>
     <scripts name="Items">
-      <script>scripts\scr_potion.gml</script>
       <script>scripts\scr_get_item_index.gml</script>
+      <script>scripts\scr_potion.gml</script>
     </scripts>
     <script>scripts\script2.gml</script>
     <scripts name="Menu">
       <script>scripts\scr_spawn_magic_list.gml</script>
       <script>scripts\scr_spawn_item_list.gml</script>
     </scripts>
-    <scripts name="BattleActions">
+    <scripts name="Battle">
       <script>scripts\scr_end_game.gml</script>
       <script>scripts\scr_dummy_spellcast.gml</script>
       <script>scripts\scr_choose_target_battle.gml</script>
-      <script>scripts\scr_attack_battle.gml</script>
       <script>scripts\scr_back.gml</script>
       <scripts name="algorithms">
         <script>scripts\scr_initiative_algorithm.gml</script>
+      </scripts>
+      <scripts name="Actions">
+        <script>scripts\scr_attack_battle.gml</script>
+        <script>scripts\ACTION_TEMPLATE.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -135,14 +138,24 @@
       <object>objects\obj_battle_controller</object>
       <object>objects\obj_battle_target_selector</object>
       <object>objects\obj_battle_help_box</object>
+      <object>objects\obj_action</object>
     </objects>
     <object>objects\obj_song</object>
     <object>objects\obj_npc</object>
+    <object>objects\obj_fake_animation</object>
+    <objects name="BattleActions">
+      <object>objects\obj_battle_action_attack</object>
+      <object>objects\obj_battle_action</object>
+      <objects name="Items">
+        <object>objects\obj_battle_action_potion</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\battle_test</room>
     <room>rooms\menu</room>
     <room>rooms\room0</room>
+    <room>rooms\room3</room>
   </rooms>
   <constants number="14">
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ENEMY">13</constant>

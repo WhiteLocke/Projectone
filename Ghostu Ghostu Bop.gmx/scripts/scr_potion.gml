@@ -2,11 +2,12 @@
 
 Params:
 
-argument0 - obj_character to use the potion on
-return - false if the item was not used, true if it was*/
+argument0 - action
 
 /* Potions can be used on enemy or ally*/
-target = argument0
+
+/* If not in battle, just use the potion
+target = argument0.target
 if ( (target).currentHP + 100 > (target).maxHP)
     target.currentHP = target.maxHP
 else
@@ -16,4 +17,10 @@ Player.inventory[ITEM_POTION,1] -= 1
 if(Player.inventory[ITEM_POTION,1] = 0)
     Player.numItems -= 1
 
-//Maybe if we're in battle, play an animation
+else, if we're in battle:*/
+
+obj = instance_create(x,y,obj_battle_action_potion)
+obj.action = argument0
+
+//Start the action
+obj.alarm[0] = 1

@@ -123,12 +123,27 @@ arrowy = y
             
             }
         }
+        
+        /* If we hit enter, our target is selected. Queue up the action. */
        if(keyboard_check_pressed(vk_enter)){
             if(groupSelected = false){
-                if(allySelected)
-                   script_execute(script,Player.party[targetSelected])
-                if(enemySelected)
-                   script_execute(script,obj_battle_controller.enemies[targetSelected])
+                if(allySelected){
+                    action = instance_create(x,y,obj_action)
+                    action.attacker = obj_battle_controller.allyActive
+                    action.targets[0] = Player.party[targetSelected]
+                    action.numTargets = 1
+                    action.script=script
+                    ds_queue_enqueue(obj_battle_controller.actionQueue,action)
+                }
+                if(enemySelected){
+                    action = instance_create(x,y,obj_action)
+                    action.attacker = obj_battle_controller.allyActive
+                    action.targets[0] = obj_battle_controller.enemies[targetSelected]
+                    action.numTargets = 1
+                    action.script=script
+                    ds_queue_enqueue(obj_battle_controller.actionQueue,action)
+                
+                }
             }
             
                  //return to the parent menu
