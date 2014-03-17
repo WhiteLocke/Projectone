@@ -41,16 +41,19 @@
     <sprites name="Characters">
       <sprites name="Noname">
         <sprite>sprites\Noname_Spritesheet</sprite>
+        <sprite>sprites\sprite37</sprite>
         <sprite>sprites\spr_noname_idle</sprite>
         <sprite>sprites\spr_noname_angry</sprite>
         <sprite>sprites\spr_noname_run</sprite>
-        <sprite>sprites\spr_noname_spell</sprite>
+        <sprite>sprites\spr_noname_spellprep</sprite>
         <sprite>sprites\spr_noname_hit</sprite>
         <sprite>sprites\spr_noname_hurt</sprite>
         <sprite>sprites\spr_noname_dead</sprite>
         <sprite>sprites\spr_noname_yay</sprite>
         <sprite>sprites\spr_noname_attack</sprite>
         <sprite>sprites\spr_rock</sprite>
+        <sprite>sprites\spr_noname_spellcast</sprite>
+        <sprite>sprites\spr_noname_front</sprite>
       </sprites>
       <sprites name="NPCs">
         <sprite>sprites\spr_mother_noname</sprite>
