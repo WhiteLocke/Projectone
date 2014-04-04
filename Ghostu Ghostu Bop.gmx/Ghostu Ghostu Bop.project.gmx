@@ -14,16 +14,12 @@
     <sound>sound\snd_fart</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\hero_idle</sprite>
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_heromask</sprite>
     <sprite>sprites\spr_soul</sprite>
     <sprite>sprites\spr_prsoul</sprite>
     <sprite>sprites\spr_expr</sprite>
-    <sprite>sprites\hero_run</sprite>
-    <sprite>sprites\hero_jumping</sprite>
-    <sprite>sprites\hero_fall</sprite>
     <sprites name="Menus">
       <sprite>sprites\spr_marrow</sprite>
       <sprite>sprites\spr_yellowbar</sprite>
@@ -58,6 +54,14 @@
       </sprites>
       <sprites name="NPCs">
         <sprite>sprites\spr_mother_noname</sprite>
+      </sprites>
+      <sprites name="You">
+        <sprite>sprites\hero_idle</sprite>
+        <sprite>sprites\hero_run</sprite>
+        <sprite>sprites\hero_jumping</sprite>
+        <sprite>sprites\hero_fall</sprite>
+        <sprite>sprites\hero_spellprep</sprite>
+        <sprite>sprites\hero_spellcast</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\sprite29</sprite>
