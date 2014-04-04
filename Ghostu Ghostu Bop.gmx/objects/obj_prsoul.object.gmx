@@ -28,6 +28,9 @@
             <string>vspeed = 1;
 prsoulhp = 4;
 alarm = 200;
+depth = -10;
+
+
 </string>
           </argument>
         </arguments>
@@ -73,7 +76,12 @@ alarm = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (prsoulhp &lt;= 0) instance_destroy();
+            <string>if (alarm[0] = 150) prsoulhp -= 1
+if (alarm[0] = 100) prsoulhp -= 1
+if (alarm[0] = 50) prsoulhp -= 1
+if (alarm[0] = 0) prsoulhp -= 1
+image_alpha = prsoulhp*.25
+if (prsoulhp &lt;= 0) instance_destroy();
 </string>
           </argument>
         </arguments>

@@ -39,8 +39,20 @@ visibleEntries = 5
 for(var i = 0; i &lt; numEntries; i++){
     menuEntry[i] = instance_create(x+width*.25,menuEntryStartY+i*menuSpace,obj_menuentry)
     menuEntry[i].txt = 'Spell'
-    menuEntry[i].script = scr_dummy_spellcast
+    menuEntry[i].script = scr_choose_target_battle
+
+     //Pass the location of the magic script to our "targeting" script
+            
+        menuEntry[i].numScriptParams = 3
+        menuEntry[i].scriptParams[0] = TARGET_ANY_ONE_DEFAULT_ENEMY
+        menuEntry[i].scriptParams[1] = id
+        menuEntry[i].scriptParams[2] = scr_dummy_spellcast
+    
 }
+
+       
+
+        
 </string>
           </argument>
         </arguments>
