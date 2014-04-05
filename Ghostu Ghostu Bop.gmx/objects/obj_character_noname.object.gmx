@@ -34,6 +34,7 @@ spellcast = spr_noname_spellcast
 attackprep = spr_noname_angry
 attack = spr_noname_attack
 actionFinished = true
+damage = false
 </string>
           </argument>
         </arguments>
@@ -151,10 +152,41 @@ if (sprite_index = spr_noname_spellcast)
         audio_play_sound(snd_fart,1,false)
         action.targets[0].currentHP -= action.attacker.strength
         action.targets[0].hit = true
+        damage = true
         actionFinished = true
         }
     }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+//Draw some damages
+draw_set_font(f_menuW)
+if (damage = true)
+    {
+    draw_text_color(action.targets[0].x+2,action.targets[0].y-sprite_get_height(action.targets[0].sprite_index)*.5+2,action.attacker.strength,c_black,c_black,c_black,c_black,1)
+    draw_text_color(action.targets[0].x,action.targets[0].y-sprite_get_height(action.targets[0].sprite_index)*.5,action.attacker.strength,c_white,c_white,c_white,c_white,1)    
+    }
 </string>
           </argument>
         </arguments>

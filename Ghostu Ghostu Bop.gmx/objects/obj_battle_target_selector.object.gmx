@@ -206,6 +206,7 @@ arrowy = y
     image_speed = .5
     depth = -10
 }
+
 </string>
           </argument>
         </arguments>

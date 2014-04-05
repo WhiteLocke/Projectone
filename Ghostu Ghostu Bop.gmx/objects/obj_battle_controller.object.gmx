@@ -217,7 +217,8 @@ if(keyboard_check_pressed(vk_shift))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Draw the character status box */
+            <string>
+/* Draw the character status box */
 draw_sprite_stretched(spr_menu,0,statusX,statusY,statusWidth,statusHeight);
 draw_sprite_stretched(spr_menu,0,enemyMenuX,enemyMenuY,enemyMenuWidth,enemyMenuHeight);
 draw_set_font(f_battleStatus)
