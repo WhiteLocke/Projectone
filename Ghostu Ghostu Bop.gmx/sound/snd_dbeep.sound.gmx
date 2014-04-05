@@ -2,7 +2,7 @@
 <sound>
   <kind>0</kind>
   <extension>.wav</extension>
-  <origname>C:\Users\Ro\Documents\GitHub\Projectone\Ghostu Ghostu Bop.gmx\\sound\audio\soundbeat.wav</origname>
+  <origname>doublebeep.wav</origname>
   <effects>0</effects>
   <volume>
     <volume>1</volume>
@@ -21,7 +21,7 @@
     <bitDepth>16</bitDepth>
   </bitDepths>
   <preload>-1</preload>
-  <data>soundbeat.wav</data>
+  <data>snd_dbeep.wav</data>
   <compressed>0</compressed>
   <streamed>0</streamed>
   <uncompressOnLoad>0</uncompressOnLoad>

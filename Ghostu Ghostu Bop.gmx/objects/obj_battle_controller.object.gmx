@@ -88,6 +88,28 @@ instance_create(192,room_height-32,obj_battle_help_box)
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ALARMS EVERYWHERE HAHA Init bar</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -141,6 +163,7 @@ if(!ds_queue_empty(menuQueue) and !battleMenuActive)
     instance_create(x,y,menuToSpawn)
     battleMenuActive = true
     allyActive = menuToSpawn.owningCharacter
+    audio_play_sound (snd_dbeep,1,false)
 }
         
     
@@ -151,7 +174,10 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
         Player.party[i].currentInitiative += scr_initiative_algorithm(Player.party[i].agility)
         // if they are now over initiative, spawn them a menu
         if(Player.party[i].currentInitiative &gt;= MAX_INITIATIVE)
+        {
             ds_queue_enqueue(menuQueue,Player.party[i].battleMenuObject)
+            alarm[0] = 3
+        }   
     }
         
 }
@@ -211,6 +237,16 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++)
     
     /* Draw the initiative */
     draw_sprite_stretched(spr_yellowbar,0,statusX+32,statusY+39+50*i,(Player.party[i].currentInitiative/65535)*(.9*statusWidth),sprite_get_height(spr_redbar))
+    
+    if(Player.party[i].currentInitiative &gt;= MAX_INITIATIVE)
+    {
+    draw_sprite_stretched(spr_whitebar,0,statusX+32,statusY+39+50*i,.9*statusWidth+5,sprite_get_height(spr_redbar))
+    
+    
+        if (alarm[0] = -1)
+            draw_sprite_stretched(spr_bluebar,0,statusX+32,statusY+39+50*i,.9*statusWidth+5,sprite_get_height(spr_redbar))
+        
+    }
 }
 
 for(var i = 0; i &lt; numEnemies; i++)
