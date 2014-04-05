@@ -160,6 +160,9 @@
         <object>objects\obj_battle_action_potion</object>
       </objects>
     </objects>
+    <objects name="projectiles">
+      <object>objects\obj_rock</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\battle_test</room>

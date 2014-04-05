@@ -39,7 +39,7 @@ actionQueue = ds_queue_create()
 actionActive = false
 
 /* TODO: Choose the enemies */
-enemies[0] = instance_create(32,0,obj_enemy_battle)
+enemies[0] = instance_create(200,200,obj_enemy_battle)
 numEnemies = 1
 
 

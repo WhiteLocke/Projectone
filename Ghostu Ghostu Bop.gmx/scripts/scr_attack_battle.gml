@@ -1,8 +1,10 @@
-/* Parameters
-argument0 - action */
-
-obj = instance_create(x,y,obj_battle_action_attack)
+obj = action.attacker
 obj.action = argument0
 
-//Start the action
-obj.alarm[0] = 1
+//Start the action alarm [0] is attack sequence, alarm [1] is magic
+obj.alarm[0] = 60
+obj.sprite_index = obj.attackprep;
+obj.image_speed = 0.2;
+obj.image_xscale = 1;
+
+obj_battle_controller.actionActive = false

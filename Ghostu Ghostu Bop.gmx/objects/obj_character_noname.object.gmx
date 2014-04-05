@@ -31,6 +31,8 @@ battleMenuObject = obj_noname_battlemenu
 agility = 50
 spellprep = spr_noname_spellprep
 spellcast = spr_noname_spellcast 
+attackprep = spr_noname_angry
+attack = spr_noname_attack
 
 </string>
           </argument>
@@ -98,7 +100,30 @@ spellcast = spr_noname_spellcast
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>//attack animation
+if (alarm[0] = 0)
+{
+    with (obj_character_noname)
+    {
+    sprite_index = attack;
+    image_speed = 0.1;
+    image_xscale = 1;
+    
+    
+    }
+}
+if (sprite_index = attack)
+    {
+    if (image_index &gt; image_number - 1) 
+        {
+        sprite_index = spr_noname_idle
+        audio_play_sound(snd_fart,1,false)
+        instance_create(x,y,obj_rock)
+        }
+    }
+
+
+
 if (alarm[1] = 0)
 {
     with (obj_character_noname)
@@ -115,10 +140,10 @@ if (sprite_index = spr_noname_spellcast)
     if (image_index &gt; image_number - 1) 
         {
         sprite_index = spr_noname_idle
+        instance_create(action.targets[0].x-100,action.targets[0].y,obj_prsoul)
+        instance_create(action.targets[0].x-50,action.targets[0].y,obj_prsoul)
         instance_create(action.targets[0].x+50,action.targets[0].y,obj_prsoul)
         instance_create(action.targets[0].x+100,action.targets[0].y,obj_prsoul)
-        instance_create(action.targets[0].x+150,action.targets[0].y,obj_prsoul)
-        instance_create(action.targets[0].x+200,action.targets[0].y,obj_prsoul)
         audio_play_sound(snd_fart,1,false)
         action.targets[0].currentHP -= action.attacker.strength
         }
