@@ -121,8 +121,9 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
         {
         sprite_index = hero_idle
         image_speed = 1
-        audio_play_sound(snd_fart,1,false)
+        audio_play_sound(snd_hit,1,false)
         action.targets[0].currentHP -= action.attacker.strength
+        action.targets[0].hit = true
         actionFinished = true
         attackQ = 0
         }
@@ -153,6 +154,7 @@ if (sprite_index = spellcast &amp;&amp; spellQ = 1)
         instance_create(action.targets[0].x+100,action.targets[0].y-100,obj_prsoul)
         audio_play_sound(snd_fart,1,false)
         action.targets[0].currentHP -= action.attacker.strength
+        action.targets[0].hit = true
         actionFinished = true
         spellQ = 0
         }

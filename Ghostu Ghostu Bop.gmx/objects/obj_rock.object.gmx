@@ -50,12 +50,13 @@
             <kind>1</kind>
             <string>image_angle = direction;
 
-hit = instance_place(x,y,obj_character_noname.action.targets[0]);
-if (hit != noone)
+land = instance_place(x,y,obj_character_noname.action.targets[0]);
+if (land != noone)
     {
     
     obj_character_noname.action.targets[0].currentHP -= obj_character_noname.action.attacker.strength;
-    audio_play_sound(snd_fart,1,false)
+    obj_character_noname.action.targets[0].hit = true
+    audio_play_sound(snd_hit,1,false)
     instance_destroy();
     }
 </string>

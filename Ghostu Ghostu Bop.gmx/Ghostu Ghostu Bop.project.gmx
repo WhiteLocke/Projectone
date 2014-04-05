@@ -13,6 +13,8 @@
     <sound>sound\ff6_jump</sound>
     <sound>sound\snd_fart</sound>
     <sound>sound\snd_dbeep</sound>
+    <sound>sound\snd_hit</sound>
+    <sound>sound\snd_woosh</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_enemy</sprite>
@@ -25,6 +27,7 @@
       <sprite>sprites\spr_marrow</sprite>
       <sprite>sprites\spr_yellowbar</sprite>
       <sprite>sprites\spr_bluebar</sprite>
+      <sprite>sprites\spr_gaybar</sprite>
       <sprite>sprites\spr_whitebar</sprite>
       <sprite>sprites\spr_redbar</sprite>
       <sprite>sprites\spr_cursor</sprite>
@@ -68,6 +71,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\sprite29</sprite>
+    <sprite>sprites\sprite41</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

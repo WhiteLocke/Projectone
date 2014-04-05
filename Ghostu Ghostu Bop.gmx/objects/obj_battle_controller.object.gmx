@@ -233,7 +233,7 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++)
     draw_set_halign(fa_left)
     
     /* Draw the bar */
-    draw_sprite_stretched(spr_redbar,0,statusX+32,statusY+39+50*i,.9*statusWidth,sprite_get_height(spr_redbar))
+    draw_sprite_stretched(spr_gaybar,0,statusX+32,statusY+39+50*i,.9*statusWidth,sprite_get_height(spr_redbar))
     
     /* Draw the initiative */
     draw_sprite_stretched(spr_yellowbar,0,statusX+32,statusY+39+50*i,(Player.party[i].currentInitiative/65535)*(.9*statusWidth),sprite_get_height(spr_redbar))
