@@ -33,7 +33,7 @@ spellprep = spr_noname_spellprep
 spellcast = spr_noname_spellcast 
 attackprep = spr_noname_angry
 attack = spr_noname_attack
-
+actionFinished = true
 </string>
           </argument>
         </arguments>
@@ -103,10 +103,11 @@ attack = spr_noname_attack
             <string>//attack animation
 if (alarm[0] = 0)
 {
+    obj_battle_controller.actionActive = false
     with (obj_character_noname)
     {
     sprite_index = attack;
-    image_speed = 0.1;
+    image_speed = 0.3;
     image_xscale = 1;
     
     
@@ -119,6 +120,7 @@ if (sprite_index = attack)
         sprite_index = spr_noname_idle
         audio_play_sound(snd_fart,1,false)
         instance_create(x,y,obj_rock)
+        actionFinished = true
         }
     }
 
@@ -126,6 +128,7 @@ if (sprite_index = attack)
 
 if (alarm[1] = 0)
 {
+    obj_battle_controller.actionActive = false
     with (obj_character_noname)
     {
     sprite_index = spellcast;
@@ -140,12 +143,13 @@ if (sprite_index = spr_noname_spellcast)
     if (image_index &gt; image_number - 1) 
         {
         sprite_index = spr_noname_idle
-        instance_create(action.targets[0].x-100,action.targets[0].y,obj_prsoul)
-        instance_create(action.targets[0].x-50,action.targets[0].y,obj_prsoul)
-        instance_create(action.targets[0].x+50,action.targets[0].y,obj_prsoul)
-        instance_create(action.targets[0].x+100,action.targets[0].y,obj_prsoul)
+        instance_create(action.targets[0].x-100,action.targets[0].y-100,obj_prsoul)
+        instance_create(action.targets[0].x-50,action.targets[0].y-100,obj_prsoul)
+        instance_create(action.targets[0].x+50,action.targets[0].y-100,obj_prsoul)
+        instance_create(action.targets[0].x+100,action.targets[0].y-100,obj_prsoul)
         audio_play_sound(snd_fart,1,false)
         action.targets[0].currentHP -= action.attacker.strength
+        actionFinished = true
         }
     }
 

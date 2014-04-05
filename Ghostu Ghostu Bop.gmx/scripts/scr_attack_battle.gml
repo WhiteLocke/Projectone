@@ -6,5 +6,6 @@ obj.alarm[0] = 60
 obj.sprite_index = obj.attackprep;
 obj.image_speed = 0.2;
 obj.image_xscale = 1;
+obj.actionFinished = false;
 
-obj_battle_controller.actionActive = false
+

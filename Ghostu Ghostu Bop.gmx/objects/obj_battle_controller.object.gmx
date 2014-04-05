@@ -146,7 +146,7 @@ if(!ds_queue_empty(menuQueue) and !battleMenuActive)
     
 /* Calculate speed increment */
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
-    if(Player.party[i].currentInitiative &lt; MAX_INITIATIVE)
+    if(Player.party[i].currentInitiative &lt; MAX_INITIATIVE &amp;&amp; Player.party[i].actionFinished = true)
     {
         Player.party[i].currentInitiative += scr_initiative_algorithm(Player.party[i].agility)
         // if they are now over initiative, spawn them a menu
