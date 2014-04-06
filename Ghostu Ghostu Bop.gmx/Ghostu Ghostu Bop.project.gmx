@@ -15,9 +15,11 @@
     <sound>sound\snd_dbeep</sound>
     <sound>sound\snd_hit</sound>
     <sound>sound\snd_woosh</sound>
+    <sound>sound\snd_xplo</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_enemy</sprite>
+    <sprite>sprites\spr_enemyh</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_heromask</sprite>
     <sprite>sprites\spr_soul</sprite>
@@ -115,6 +117,7 @@
       <object>objects\obj_character_noname</object>
       <object>objects\obj_character_you</object>
       <objects name="Enemies">
+        <object>objects\obj_enemy_battle2</object>
         <object>objects\obj_enemy_battle</object>
       </objects>
     </objects>

@@ -90,6 +90,7 @@ arrowy = y
     /* END ARROW DRAWING */
 
     if (keyboard_check_pressed(vk_down)){
+        audio_play_sound(snd_select,1,false)
        /* We are selecting allies */     
             if(allySelected){
                 if (targetSelected = Player.numPartyMembers-1)
@@ -109,6 +110,7 @@ arrowy = y
             }      
     }
         if (keyboard_check_pressed(vk_up)){
+            audio_play_sound(snd_select,1,false)
             if(allySelected){
                 if (targetSelected = 0)
                     targetSelected = Player.numPartyMembers-1

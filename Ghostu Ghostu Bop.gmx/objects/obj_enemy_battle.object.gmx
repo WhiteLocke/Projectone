@@ -29,7 +29,31 @@
 currentHP = 30
 maxHP = 30
 hit = false
+normalsp = sprite29
+hitsp = sprite41
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>death gasp</string>
           </argument>
         </arguments>
       </action>
@@ -79,10 +103,21 @@ alarm[0] = 6
 hit = false
 }
 
-if (alarm[0] = 6) sprite_index = sprite41
-if (alarm[0] = 4) sprite_index = sprite29
-if (alarm[0] = 2) sprite_index = sprite41
-if (alarm[0] = 0) sprite_index = sprite29
+if (alarm[0] = 6) sprite_index = hitsp
+if (alarm[0] = 4) sprite_index = normalsp
+if (alarm[0] = 2) sprite_index = hitsp
+if (alarm[0] = 0) sprite_index = normalsp
+
+if (alarm[1] = 5)
+    {
+       sprite_index = hitsp
+       alpha = .5
+    }
+if (alarm[1] = 0)
+    {
+       instance_destroy()
+       audio_play_sound(snd_hit,1,false)
+    }
 </string>
           </argument>
         </arguments>

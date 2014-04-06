@@ -121,7 +121,7 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
         {
         sprite_index = hero_idle
         image_speed = 1
-        audio_play_sound(snd_hit,1,false)
+        audio_play_sound(snd_xplo,1,false)
         action.targets[0].currentHP -= action.attacker.strength
         action.targets[0].hit = true
         numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)

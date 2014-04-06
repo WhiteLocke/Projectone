@@ -29,6 +29,7 @@
 
 //tmp variable
 playing = false
+tokill = 0
 
 /* A queue for our action menus */
 menuQueue = ds_queue_create()
@@ -40,7 +41,9 @@ actionActive = false
 
 /* TODO: Choose the enemies */
 enemies[0] = instance_create(200,200,obj_enemy_battle)
-numEnemies = 1
+enemies [1] = instance_create(200,100,obj_enemy_battle2)
+enemies [2] = instance_create(300,100,obj_enemy_battle2)
+numEnemies = 3
 
 
 /* Who is active? 
@@ -88,6 +91,28 @@ instance_create(192,room_height-32,obj_battle_help_box)
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Death gasp</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -130,9 +155,10 @@ instance_create(192,room_height-32,obj_battle_help_box)
             <string>/* TODO: Recognize end of battle */
 for(var i = 0; i &lt; numEnemies; i++){
     if(enemies[i].currentHP &lt; 1){
-        with(enemies[i])
-            instance_destroy()
-        
+        {
+             enemies[i].alarm[1] = 24
+            }
+           
             //remove the enemy from our list
         for(var j = i; j &lt; numEnemies-1; j++)
         {
