@@ -30,9 +30,16 @@ target = action.targets[0]
 
 
 if ( (target).currentHP + 100 &gt; (target).maxHP)
+    {
+    //restore variable will be passed to the battle numbers object
+    restore = target.maxHP - target.currentHP
     target.currentHP = target.maxHP
+    }
 else
+    {
     target.currentHP += 100
+    restore = 100
+    }
     
     
 Player.inventory[ITEM_POTION,1] -= 1
@@ -41,6 +48,11 @@ if(Player.inventory[ITEM_POTION,1] = 0)
     
     
 audio_play_sound(ff6_jump,1,false)
+
+//add numbers
+numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
+        numbers.heal = true
+        numbers.restore = restore
 
 with(action)
     instance_destroy()

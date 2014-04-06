@@ -156,6 +156,7 @@
       <object>objects\obj_battle_target_selector</object>
       <object>objects\obj_battle_help_box</object>
       <object>objects\obj_action</object>
+      <object>objects\obj_battle_damage</object>
     </objects>
     <object>objects\obj_song</object>
     <object>objects\obj_npc</object>

@@ -56,7 +56,8 @@ if (land != noone)
     
     obj_character_noname.action.targets[0].currentHP -= obj_character_noname.action.attacker.strength;
     obj_character_noname.action.targets[0].hit = true
-    obj_character_noname.damage = true
+    numbers = instance_create(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,obj_battle_damage)
+    numbers.damage = true
     audio_play_sound(snd_hit,1,false)
     instance_destroy();
     }

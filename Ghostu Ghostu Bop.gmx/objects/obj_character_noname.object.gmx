@@ -29,12 +29,13 @@
 name = 'Noname'
 battleMenuObject = obj_noname_battlemenu
 agility = 50
+currentHP = 933
 spellprep = spr_noname_spellprep
 spellcast = spr_noname_spellcast 
 attackprep = spr_noname_angry
 attack = spr_noname_attack
 actionFinished = true
-damage = false
+
 </string>
           </argument>
         </arguments>
@@ -102,6 +103,7 @@ damage = false
           <argument>
             <kind>1</kind>
             <string>//attack animation
+
 if (alarm[0] = 0)
 {
     audio_play_sound(snd_woosh,1,false)
@@ -150,43 +152,18 @@ if (sprite_index = spr_noname_spellcast)
         instance_create(action.targets[0].x+50,action.targets[0].y-100,obj_prsoul)
         instance_create(action.targets[0].x+100,action.targets[0].y-100,obj_prsoul)
         audio_play_sound(snd_fart,1,false)
+        
         action.targets[0].currentHP -= action.attacker.strength
+        
         action.targets[0].hit = true
-        damage = true
+        numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
+        numbers.damage = true
         actionFinished = true
         }
     }
+    
+    
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self()
-//Draw some damages
-draw_set_font(f_menuW)
-if (damage = true)
-    {
-    draw_text_color(action.targets[0].x+2,action.targets[0].y-sprite_get_height(action.targets[0].sprite_index)*.5+2,action.attacker.strength,c_black,c_black,c_black,c_black,1)
-    draw_text_color(action.targets[0].x,action.targets[0].y-sprite_get_height(action.targets[0].sprite_index)*.5,action.attacker.strength,c_white,c_white,c_white,c_white,1)    
-    }
 </string>
           </argument>
         </arguments>
