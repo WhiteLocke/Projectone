@@ -155,9 +155,9 @@ arrowy = y
                 parentID.inFocus = true
                 
                                 
-                //Finish this character's action
+                //Finish this character's turn
                 parentID.actionComplete = true
-                obj_battle_controller.allyActive.currentInitiative = 0
+               // obj_battle_controller.allyActive.currentInitiative = 0
                 
                 
                 //Kill myself

@@ -46,6 +46,7 @@ currentMP = 10
 /* My battle menu */
 battleMenu = -1
 currentInitiative = 0
+actionFinished = true;
 </string>
           </argument>
         </arguments>

@@ -41,9 +41,9 @@ actionActive = false
 
 /* TODO: Choose the enemies */
 enemies[0] = instance_create(200,200,obj_enemy_battle)
-enemies [1] = instance_create(200,100,obj_enemy_battle2)
-enemies [2] = instance_create(300,100,obj_enemy_battle2)
-numEnemies = 3
+//enemies [1] = instance_create(200,100,obj_enemy_battle2)
+//enemies [2] = instance_create(300,100,obj_enemy_battle2)
+numEnemies = 1
 
 
 /* Who is active? 
@@ -193,7 +193,7 @@ if(!ds_queue_empty(menuQueue) and !battleMenuActive)
 }
         
     
-/* Calculate speed increment */
+/* Calculate speed increment for party*/
 for(var i = 0; i &lt; Player.numPartyMembers; i++){
     if(Player.party[i].currentInitiative &lt; MAX_INITIATIVE &amp;&amp; Player.party[i].actionFinished = true)
     {
@@ -202,9 +202,28 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
         if(Player.party[i].currentInitiative &gt;= MAX_INITIATIVE)
         {
             ds_queue_enqueue(menuQueue,Player.party[i].battleMenuObject)
+            
+            //TODO: What is this doing?
             alarm[0] = 3
         }   
-    }
+        
+    }   
+}
+
+/* Now for enemies */
+for(var i = 0; i &lt; numEnemies; i++){
+       
+        if(enemies[i].currentInitiative &lt; MAX_INITIATIVE &amp;&amp; enemies[i].actionFinished = true)
+        {
+            enemies[i].currentInitiative += scr_initiative_algorithm(enemies[i].agility)
+            
+        // if an enemy is at max initiative, queue up an action
+        if(enemies[i].currentInitiative &gt;= MAX_INITIATIVE)
+        {
+            //TODO
+            ds_queue_enqueue(actionQueue,enemies[i].action)
+        }
+        }
         
 }
 
@@ -212,9 +231,9 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
 if(!ds_queue_empty(actionQueue) and !actionActive)
 {
     action = ds_queue_dequeue(actionQueue)
-    script_execute(action.script,action)
     actionActive = true
-
+    script_execute(action.script,action)
+    
 }
         
 /* Bring up the pause menu */

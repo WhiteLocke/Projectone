@@ -8,4 +8,3 @@ obj.image_speed = 0.2;
 obj.image_xscale = 1;
 obj.actionFinished = false;
 
-

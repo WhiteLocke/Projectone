@@ -102,15 +102,18 @@ spellQ = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alarm[0] = 0)
+            <string>
+//Attack alarm
+if (alarm[0] = 0)
 {
     obj_battle_controller.actionActive = false
     with (obj_character_you)
     {
     sprite_index = attack;
-    image_speed = 0.05;
+    image_speed = 0.3;
     image_xscale = 1;
     attackQ = 1
+    currentInitiative = 0;
     
     
     }

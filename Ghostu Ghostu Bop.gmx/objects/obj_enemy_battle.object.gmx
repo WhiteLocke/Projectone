@@ -25,12 +25,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name = 'AtmaWeapon'
+            <string>event_inherited();
+
+name = 'AtmaWeapon'
 currentHP = 30
 maxHP = 30
+strength = 50
+agility = 50
 hit = false
 normalsp = sprite29
 hitsp = sprite41
+
+//Needs to be replaced by AI
+action = instance_create(x,y,obj_action);
+action.attacker = id;
+action.targets[0] = 0;
+action.numTargets = 1;
+action.script = scr_monster_attack;
+
 </string>
           </argument>
         </arguments>
