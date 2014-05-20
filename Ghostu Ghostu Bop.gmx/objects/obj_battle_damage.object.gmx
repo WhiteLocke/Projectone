@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>depth = -10
-alarm [0] = 100
+alarm [0] = 50
 
-attack = obj_battle_controller.action.attacker.strength
+attack = 0
 restore = 0
 damage = false
 heal = false

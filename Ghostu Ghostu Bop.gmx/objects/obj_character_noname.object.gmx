@@ -158,6 +158,7 @@ if (sprite_index = spr_noname_spellcast)
         action.targets[0].hit = true
         numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
         numbers.damage = true
+        numbers.attack = obj_character_noname.strength
         actionFinished = true
         }
     }

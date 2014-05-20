@@ -35,6 +35,7 @@ attack = hero_spellcast
 actionFinished = true
 attackQ = 0
 spellQ = 0
+strength = 5
 
 </string>
           </argument>
@@ -129,6 +130,7 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
         action.targets[0].hit = true
         numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
         numbers.damage = true
+        numbers.attack = obj_character_you.strength
         actionFinished = true
         attackQ = 0
         }
@@ -162,6 +164,7 @@ if (sprite_index = spellcast &amp;&amp; spellQ = 1)
         action.targets[0].hit = true
         numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
         numbers.damage = true
+        numbers.attack = obj_character_you.strength
         actionFinished = true
         spellQ = 0
         }

@@ -30,7 +30,7 @@
 name = 'AtmaWeapon'
 currentHP = 30
 maxHP = 30
-strength = 50
+strength = 100
 agility = 50
 hit = false
 normalsp = sprite29
