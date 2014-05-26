@@ -236,6 +236,7 @@ if(!ds_queue_empty(actionQueue) and !actionActive)
     if(action.attacker.monster != true){       
         script_execute(action.script,action)
         }
+    //had to set an alarm first when monster attacks to make shit less confusing for player
     else{
         action.attacker.attacking = true
         action.attacker.actionFinished = false
