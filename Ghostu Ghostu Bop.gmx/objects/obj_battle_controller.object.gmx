@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize()
+            <string>
 
 //tmp variable
 playing = false
@@ -152,7 +152,8 @@ instance_create(192,room_height-32,obj_battle_help_box)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* TODO: Recognize end of battle */
+            <string>
+/* TODO: Recognize end of battle */
 for(var i = 0; i &lt; numEnemies; i++){
     if(enemies[i].currentHP &lt; 1){
         {
@@ -213,7 +214,6 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
 
 /* Now for enemies */
 for(var i = 0; i &lt; numEnemies; i++){
-       
         if(enemies[i].currentInitiative &lt; MAX_INITIATIVE &amp;&amp; enemies[i].actionFinished = true)
         {
             enemies[i].currentInitiative += scr_initiative_algorithm(enemies[i].agility)

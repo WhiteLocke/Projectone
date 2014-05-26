@@ -33,6 +33,8 @@ attacker=0
 targets[0] = 0
 numTargets = 0
 script=0
+
+
 </string>
           </argument>
         </arguments>

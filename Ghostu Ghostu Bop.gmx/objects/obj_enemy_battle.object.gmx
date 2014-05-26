@@ -38,12 +38,11 @@ hitsp = sprite41
 monster = true
 attacking = false
 
-//Needs to be replaced by AI
-action = instance_create(x,y,obj_action);
-action.attacker = id;
-action.targets[0] = 0;
-action.numTargets = 1;
-action.script = scr_monster_attack;
+
+
+
+
+
 
 </string>
           </argument>
@@ -133,7 +132,22 @@ action.script = scr_monster_attack;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (hit = true) 
+            <string>
+//I bypassed the action object because it seems useless
+//but it might need to come back depending on the AI
+//EVERYTHING EQUALS ID
+//So the enemy choose target script is filled with tons of
+//stuff that doesn't do anything right now
+
+action = id
+action.attacker = id
+action.script = scr_enemy_choose_target
+action.numScriptParams = 3
+action.scriptParams[0] = TARGET_ANY_ONE_DEFAULT_ENEMY
+action.scriptParams[1] = id
+action.scriptParams[2] = scr_monster_attack
+    
+if (hit = true) 
 {
     alarm[0] = 6
     hit = false
@@ -150,7 +164,7 @@ if (alarm[0] = 4) sprite_index = normalsp
 if (alarm[0] = 2) sprite_index = hitsp
 if (alarm[0] = 0) sprite_index = normalsp
 
-if (alarm[3] = 0) script_execute(action.script,action)
+if (alarm[3] = 0) script_execute(action.script,action.scriptParams[0],action.scriptParams[1],action.scriptParams[2])
 
 if (alarm[1] = 5)
     {
