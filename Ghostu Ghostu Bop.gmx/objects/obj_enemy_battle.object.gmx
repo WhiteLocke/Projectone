@@ -35,6 +35,8 @@ agility = 50
 hit = false
 normalsp = sprite29
 hitsp = sprite41
+monster = true
+attacking = false
 
 //Needs to be replaced by AI
 action = instance_create(x,y,obj_action);
@@ -44,6 +46,28 @@ action.numTargets = 1;
 action.script = scr_monster_attack;
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>attack delay</string>
           </argument>
         </arguments>
       </action>
@@ -111,14 +135,22 @@ action.script = scr_monster_attack;
             <kind>1</kind>
             <string>if (hit = true) 
 {
-alarm[0] = 6
-hit = false
+    alarm[0] = 6
+    hit = false
+}
+
+if (attacking = true) {
+    alarm[0] = 6
+    alarm[3] = 16
+    attacking = false
 }
 
 if (alarm[0] = 6) sprite_index = hitsp
 if (alarm[0] = 4) sprite_index = normalsp
 if (alarm[0] = 2) sprite_index = hitsp
 if (alarm[0] = 0) sprite_index = normalsp
+
+if (alarm[3] = 0) script_execute(action.script,action)
 
 if (alarm[1] = 5)
     {

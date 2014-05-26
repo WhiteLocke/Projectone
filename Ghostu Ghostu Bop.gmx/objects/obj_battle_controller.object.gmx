@@ -233,7 +233,13 @@ if(!ds_queue_empty(actionQueue) and !actionActive)
 {
     action = ds_queue_dequeue(actionQueue)
     actionActive = true
-    script_execute(action.script,action)
+    if(action.attacker.monster != true){       
+        script_execute(action.script,action)
+        }
+    else{
+        action.attacker.attacking = true
+        action.attacker.actionFinished = false
+        }
     
 }
         
