@@ -41,9 +41,9 @@ actionActive = false
 
 /* TODO: Choose the enemies */
 enemies[0] = instance_create(200,200,obj_enemy_battle)
-//enemies [1] = instance_create(200,100,obj_enemy_battle2)
-//enemies [2] = instance_create(300,100,obj_enemy_battle2)
-numEnemies = 1
+enemies [1] = instance_create(200,100,obj_enemy_battle2)
+enemies [2] = instance_create(300,100,obj_enemy_battle2)
+numEnemies = 3
 
 
 /* Who is active? 
@@ -203,7 +203,8 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++){
         {
             ds_queue_enqueue(menuQueue,Player.party[i].battleMenuObject)
             
-            //TODO: What is this doing?
+            //TODO: What is this doing? This is for the animation of the initiative bar.
+            //it is working, trust me
             alarm[0] = 3
         }   
         
