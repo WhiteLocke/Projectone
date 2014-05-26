@@ -300,7 +300,9 @@ for(var i = 0; i &lt; Player.numPartyMembers; i++)
 
 for(var i = 0; i &lt; numEnemies; i++)
 {
-    draw_text(enemyMenuX+32,enemyMenuY+16+32*i,enemies[i].name)
+    
+    draw_text_colour(enemyMenuX+34,enemyMenuY+18+32*i,enemies[i].name,c_black,c_black,c_black,c_black,1)
+    draw_text_colour(enemyMenuX+32,enemyMenuY+16+32*i,enemies[i].name,c_white,c_white,c_white,c_white,1)
 }
 </string>
           </argument>

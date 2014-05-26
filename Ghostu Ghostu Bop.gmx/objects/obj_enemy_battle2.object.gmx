@@ -29,6 +29,8 @@
 name = 'G-g-g-ghooost!'
 currentHP = 20
 maxHP = 20
+strength = 50
+agility = 20
 hit = false
 normalsp = spr_enemy
 hitsp = spr_enemyh
