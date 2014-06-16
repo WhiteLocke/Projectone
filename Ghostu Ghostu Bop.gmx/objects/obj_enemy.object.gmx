@@ -144,7 +144,7 @@ if(speed &gt; 2)speed = 2;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_wall_old">
       <action>
         <libid>1</libid>
         <id>603</id>

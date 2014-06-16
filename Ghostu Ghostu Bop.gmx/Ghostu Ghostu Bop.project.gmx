@@ -3,6 +3,42 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="5" name="datafiles">
+    <datafile>
+      <name>Textbox_Engine_V5_CMD_Reference.txt</name>
+      <exists>-1</exists>
+      <size>6599</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Textbox_Engine_V5_CMD_Reference.txt</filename>
+    </datafile>
+    <datafile>
+      <name>test.txt</name>
+      <exists>-1</exists>
+      <size>327</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>test.txt</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\soundbeat</sound>
@@ -17,11 +53,22 @@
     <sound>sound\snd_woosh</sound>
     <sound>sound\snd_xplo</sound>
     <sound>sound\snd_evillaugh</sound>
+    <sounds name="TEXTBOX">
+      <sound>sound\snd_textbox_close</sound>
+      <sound>sound\snd_textbox_move</sound>
+      <sound>sound\snd_textbox_open</sound>
+      <sound>sound\snd_textbox_select</sound>
+      <sound>sound\snd_textbox_sfx_shock</sound>
+      <sound>sound\snd_voicehigh</sound>
+      <sound>sound\snd_voicelow</sound>
+      <sound>sound\snd_voicemed</sound>
+      <sound>sound\snd_voicethought</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_enemyh</sprite>
-    <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_wall_old</sprite>
     <sprite>sprites\spr_heromask</sprite>
     <sprite>sprites\spr_soul</sprite>
     <sprite>sprites\spr_prsoul</sprite>
@@ -35,7 +82,7 @@
       <sprite>sprites\spr_redbar</sprite>
       <sprite>sprites\spr_cursor</sprite>
       <sprite>sprites\spr_menu</sprite>
-      <sprite>sprites\spr_textbox</sprite>
+      <sprite>sprites\spr_textbox_old</sprite>
       <sprites name="Menu Concepts">
         <sprite>sprites\gamemenuconcept</sprite>
         <sprite>sprites\startandtargetselect</sprite>
@@ -75,10 +122,26 @@
     </sprites>
     <sprite>sprites\sprite29</sprite>
     <sprite>sprites\sprite41</sprite>
+    <sprites name="TEXTBOX">
+      <sprite>sprites\spr_fontmain</sprite>
+      <sprite>sprites\spr_TEST_cutin1</sprite>
+      <sprite>sprites\spr_TEST_cutin1_eyes</sprite>
+      <sprite>sprites\spr_TEST_cutin1_mouth</sprite>
+      <sprite>sprites\spr_TEST_cutin2</sprite>
+      <sprite>sprites\spr_TEST_cutin2_eyes</sprite>
+      <sprite>sprites\spr_TEST_cutin2_mouth</sprite>
+      <sprite>sprites\spr_textbox</sprite>
+      <sprite>sprites\spr_textbox_arrow</sprite>
+      <sprite>sprites\spr_textbox_cursor</sprite>
+      <sprite>sprites\spr_textbox_namebox</sprite>
+      <sprite>sprites\spr_textbox_questionbox</sprite>
+      <sprite>sprites\spr_textbox_questionbox_cursor</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\tilesexample</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -107,12 +170,32 @@
         <script>scripts\scr_monster_attack.gml</script>
       </scripts>
     </scripts>
+    <scripts name="TEXTBOX">
+      <script>scripts\textbox_cmd_delete.gml</script>
+      <script>scripts\textbox_cmd_execute.gml</script>
+      <script>scripts\textbox_cmd_load.gml</script>
+      <script>scripts\textbox_color_get.gml</script>
+      <script>scripts\textbox_cutin_sprite_set.gml</script>
+      <script>scripts\textbox_cutin_swap.gml</script>
+      <script>scripts\textbox_loadbox.gml</script>
+      <script>scripts\textbox_question_pointer.gml</script>
+      <script>scripts\textbox_sfx_play.gml</script>
+      <script>scripts\textbox_specialchar_check.gml</script>
+      <script>scripts\textbox_var_get.gml</script>
+      <script>scripts\textbox_var_set.gml</script>
+      <script>scripts\textbox_voice_play.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_menuW</font>
     <font>fonts\f_battleStatus</font>
   </fonts>
   <objects name="objects">
+    <objects name="MapObjects">
+      <object>objects\obj_PlayerAvatar</object>
+      <object>objects\obj_MapCollidable</object>
+      <object>objects\obj_MapNPC</object>
+    </objects>
     <objects name="Characters">
       <object>objects\obj_character</object>
       <object>objects\HiroProtagonist</object>
@@ -125,8 +208,8 @@
       </objects>
     </objects>
     <object>objects\obj_parsoul</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_textbox</object>
+    <object>objects\obj_wall_old</object>
+    <object>objects\obj_textbox_old</object>
     <object>objects\par_wall</object>
     <object>objects\obj_hero</object>
     <object>objects\obj_soul</object>
@@ -177,14 +260,25 @@
     <objects name="projectiles">
       <object>objects\obj_rock</object>
     </objects>
+    <objects name="TEXTBOX">
+      <object>objects\obj_textbox</object>
+      <object>objects\obj_LOADTEST</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\walking_test</room>
     <room>rooms\battle_test</room>
     <room>rooms\menu</room>
     <room>rooms\room0</room>
     <room>rooms\room3</room>
+    <rooms name="TEXTBOX">
+      <room>rooms\rm_TEST</room>
+      <room>rooms\rm_TESTGOTO</room>
+    </rooms>
   </rooms>
-  <constants number="14">
+  <constants number="16">
+    <constant name="DEPTH_DEFAULT">1000000</constant>
+    <constant name="DEPTH_COLLISION">9000000</constant>
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ENEMY">13</constant>
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ALLY">12</constant>
     <constant name="TARGET_ALL">9</constant>
