@@ -137,11 +137,14 @@
       <sprite>sprites\spr_textbox_questionbox</sprite>
       <sprite>sprites\spr_textbox_questionbox_cursor</sprite>
     </sprites>
+    <sprite>sprites\sprite57</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
     <background>background\tilesexample</background>
+    <background>background\nonameworld</background>
+    <background>background\bg_testground</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
