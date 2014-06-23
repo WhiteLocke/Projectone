@@ -119,6 +119,12 @@
         <sprite>sprites\hero_spellprep</sprite>
         <sprite>sprites\hero_spellcast</sprite>
       </sprites>
+      <sprites name="Arrow">
+        <sprite>sprites\spr_arrow_up</sprite>
+        <sprite>sprites\spr_arrow_down</sprite>
+        <sprite>sprites\spr_arrow_left</sprite>
+        <sprite>sprites\spr_arrow_right</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\sprite29</sprite>
     <sprite>sprites\sprite41</sprite>
@@ -137,7 +143,6 @@
       <sprite>sprites\spr_textbox_questionbox</sprite>
       <sprite>sprites\spr_textbox_questionbox_cursor</sprite>
     </sprites>
-    <sprite>sprites\sprite57</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -188,6 +193,9 @@
       <script>scripts\textbox_var_set.gml</script>
       <script>scripts\textbox_voice_play.gml</script>
     </scripts>
+    <scripts name="Map">
+      <script>scripts\tile_free.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_menuW</font>
@@ -196,8 +204,10 @@
   <objects name="objects">
     <objects name="MapObjects">
       <object>objects\obj_PlayerAvatar</object>
+      <object>objects\obj_PlayerAvatar_tile</object>
       <object>objects\obj_MapCollidable</object>
       <object>objects\obj_MapNPC</object>
+      <object>objects\obj_Depth_Controller</object>
     </objects>
     <objects name="Characters">
       <object>objects\obj_character</object>
@@ -269,6 +279,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room8</room>
+    <room>rooms\walking_test_tile</room>
     <room>rooms\walking_test</room>
     <room>rooms\battle_test</room>
     <room>rooms\menu</room>
@@ -279,7 +291,9 @@
       <room>rooms\rm_TESTGOTO</room>
     </rooms>
   </rooms>
-  <constants number="16">
+  <constants number="18">
+    <constant name="TILE_WIDTH">32</constant>
+    <constant name="TILE_HEIGHT">32</constant>
     <constant name="DEPTH_DEFAULT">1000000</constant>
     <constant name="DEPTH_COLLISION">9000000</constant>
     <constant name="TARGET_ANY_GROUPORONE_DEFAULT_ENEMY">13</constant>

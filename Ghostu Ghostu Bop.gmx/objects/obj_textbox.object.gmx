@@ -76,6 +76,7 @@ start_pointer=0; //this is the pointer for the text loader to know where to star
             <string>//cleans data
 ds_queue_destroy(cmd_data_queue);
 ds_queue_destroy(cmd_pos_queue);
+obj_PlayerAvatar_tile.paused = false
 </string>
           </argument>
         </arguments>

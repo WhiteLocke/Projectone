@@ -1,6 +1,1 @@
-Hi there![E:0]
-[S:N]I'm a different message! This is a [S:R]really long test [S:N] to see what happens#if it overruns or what's going on who knows[E:0]
-
-I like [C:1]Beef[C:C] too![E:0]
-I like [C:2]Chicken[C:C] also![E:0]
-Hey, here's a sample poll question! What's your favorite food? [QT:0,Beef][QT:1,Chicken][QP:0,3][QP:1,4][Q:Y]
+Hi! I'm the longest message there is!!#[E:0]
