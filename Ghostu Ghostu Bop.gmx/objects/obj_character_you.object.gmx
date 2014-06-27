@@ -32,12 +32,37 @@ spellprep = hero_spellprep
 spellcast = hero_spellcast
 attackprep = hero_spellprep
 attack = hero_spellcast
+hitindex = hero_hit
 actionFinished = true
 attackQ = 0
 spellQ = 0
 strength = 5
+hit = false
+monster = false
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hit alarm</string>
           </argument>
         </arguments>
       </action>
@@ -169,6 +194,16 @@ if (sprite_index = spellcast &amp;&amp; spellQ = 1)
         spellQ = 0
         }
     }
+//hit animation, working with alarm 3
+if (hit = true){
+alarm[3] = 24
+hit = false
+}
+if (alarm[3] = 24){
+sprite_index = hitindex
+image_speed = .25
+}
+if (alarm[3] = 0) sprite_index = hero_idle
 </string>
           </argument>
         </arguments>

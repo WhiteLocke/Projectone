@@ -34,9 +34,34 @@ spellprep = spr_noname_spellprep
 spellcast = spr_noname_spellcast 
 attackprep = spr_noname_angry
 attack = spr_noname_attack
+hitindex = spr_noname_hit
 actionFinished = true
+hit = false
+monster = false
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hit alarm</string>
           </argument>
         </arguments>
       </action>
@@ -162,6 +187,17 @@ if (sprite_index = spr_noname_spellcast)
         actionFinished = true
         }
     }
+    
+//hit animation, working with alarm 3
+if (hit = true){
+alarm[3] = 24
+hit = false
+}
+if (alarm[3] = 24){
+sprite_index = hitindex
+image_speed = .25
+}
+if (alarm[3] = 0) sprite_index = spr_noname_idle
     
     
 
