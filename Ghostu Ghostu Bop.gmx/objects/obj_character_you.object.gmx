@@ -39,6 +39,7 @@ spellQ = 0
 strength = 5
 hit = false
 monster = false
+weapon = obj_claw
 
 </string>
           </argument>
@@ -155,7 +156,7 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
         numbers = instance_create(action.targets[0].x,action.targets[0].y,obj_battle_damage)
         numbers.damage = true
         numbers.attack = obj_character_you.strength
-        animation = instance_create (action.targets[0].x+action.targets[0].sprite_width*.2,action.targets[0].y,obj_bash)
+        animation = instance_create (action.targets[0].x+action.targets[0].sprite_width*.2,action.targets[0].y,action.attacker.weapon)
         actionFinished = true
         attackQ = 0
         }

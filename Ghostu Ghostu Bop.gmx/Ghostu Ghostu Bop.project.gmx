@@ -265,10 +265,6 @@
       <object>objects\obj_battle_help_box</object>
       <object>objects\obj_action</object>
       <object>objects\obj_battle_damage</object>
-      <objects name="animations">
-        <object>objects\obj_claw</object>
-        <object>objects\obj_bash</object>
-      </objects>
     </objects>
     <object>objects\obj_song</object>
     <object>objects\obj_npc</object>
@@ -278,6 +274,10 @@
       <object>objects\obj_battle_action</object>
       <objects name="Items">
         <object>objects\obj_battle_action_potion</object>
+      </objects>
+      <objects name="animations">
+        <object>objects\obj_claw</object>
+        <object>objects\obj_bash</object>
       </objects>
     </objects>
     <objects name="projectiles">

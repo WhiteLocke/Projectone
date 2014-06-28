@@ -37,6 +37,7 @@ normalsp = sprite29
 hitsp = sprite41
 monster = true
 attacking = false
+weapon = obj_claw
 
 
 

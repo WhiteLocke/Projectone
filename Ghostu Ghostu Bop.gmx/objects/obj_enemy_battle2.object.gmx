@@ -34,6 +34,7 @@ agility = 20
 hit = false
 normalsp = spr_enemy
 hitsp = spr_enemyh
+weapon = obj_bash
 
 </string>
           </argument>

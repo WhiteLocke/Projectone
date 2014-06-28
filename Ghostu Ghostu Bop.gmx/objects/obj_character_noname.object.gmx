@@ -38,6 +38,7 @@ hitindex = spr_noname_hit
 actionFinished = true
 hit = false
 monster = false
+weapon = obj_bash
 
 </string>
           </argument>
