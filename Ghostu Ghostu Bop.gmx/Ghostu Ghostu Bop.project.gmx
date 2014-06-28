@@ -147,6 +147,7 @@
     </sprites>
     <sprites name="spells">
       <sprite>sprites\spr_claw</sprite>
+      <sprite>sprites\spr_bash</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -266,6 +267,7 @@
       <object>objects\obj_battle_damage</object>
       <objects name="animations">
         <object>objects\obj_claw</object>
+        <object>objects\obj_bash</object>
       </objects>
     </objects>
     <object>objects\obj_song</object>
