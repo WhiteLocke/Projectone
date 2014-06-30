@@ -64,6 +64,7 @@
       <sound>sound\snd_voicemed</sound>
       <sound>sound\snd_voicethought</sound>
     </sounds>
+    <sound>sound\snd_rip</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_enemy</sprite>
@@ -115,6 +116,7 @@
         <sprite>sprites\hero_idle</sprite>
         <sprite>sprites\hero_run</sprite>
         <sprite>sprites\hero_jumping</sprite>
+        <sprite>sprites\hero_hit</sprite>
         <sprite>sprites\hero_fall</sprite>
         <sprite>sprites\hero_spellprep</sprite>
         <sprite>sprites\hero_spellcast</sprite>
@@ -142,6 +144,10 @@
       <sprite>sprites\spr_textbox_namebox</sprite>
       <sprite>sprites\spr_textbox_questionbox</sprite>
       <sprite>sprites\spr_textbox_questionbox_cursor</sprite>
+    </sprites>
+    <sprites name="spells">
+      <sprite>sprites\spr_claw</sprite>
+      <sprite>sprites\spr_bash</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -269,6 +275,10 @@
       <objects name="Items">
         <object>objects\obj_battle_action_potion</object>
       </objects>
+      <objects name="animations">
+        <object>objects\obj_claw</object>
+        <object>objects\obj_bash</object>
+      </objects>
     </objects>
     <objects name="projectiles">
       <object>objects\obj_rock</object>
@@ -282,9 +292,10 @@
   <rooms name="rooms">
     <room>rooms\goto_prologue</room>
     <room>rooms\walking_test_tile_final</room>
+    <room>rooms\room8</room>
+    <room>rooms\battle_test</room>
     <room>rooms\walking_test_tile</room>
     <room>rooms\walking_test</room>
-    <room>rooms\battle_test</room>
     <room>rooms\menu</room>
     <room>rooms\room0</room>
     <rooms name="TEXTBOX">
