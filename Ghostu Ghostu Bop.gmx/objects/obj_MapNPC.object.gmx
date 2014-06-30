@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = DEPTH_DEFAULT-1
-textStartPointer = 0
+            <string>textStartPointer = 1
 </string>
           </argument>
         </arguments>
