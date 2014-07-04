@@ -25,7 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+            <string>if (obj_character_noname.action.targets[0]){
+move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+}
+else{
+randomize();
+newTarget = enemies[irandom(obj_battle_controller.numEnemies -1)];
+move_towards_point(newTarget.x,newTarget.y,16)
+}
 </string>
           </argument>
         </arguments>
