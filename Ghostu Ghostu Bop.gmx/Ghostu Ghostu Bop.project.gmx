@@ -290,10 +290,9 @@
     <object>objects\obj_goto_prologue</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\goto_prologue</room>
     <room>rooms\walking_test_tile_final</room>
-    <room>rooms\room8</room>
     <room>rooms\battle_test</room>
+    <room>rooms\goto_prologue</room>
     <room>rooms\walking_test_tile</room>
     <room>rooms\walking_test</room>
     <room>rooms\menu</room>

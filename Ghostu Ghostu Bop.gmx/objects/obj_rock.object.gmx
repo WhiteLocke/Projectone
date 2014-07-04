@@ -25,7 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+            <string>onTarget = 0
+
+if object_exists(obj_character_noname.action.targets[0]){
+onTarget = 1
+move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+}
+else{
+randomize();
+newTarget = obj_battle_controller.enemies[irandom(obj_battle_controller.numEnemies -1)];
+move_towards_point(newTarget.x,newTarget.y,16)
+}
 </string>
           </argument>
         </arguments>
@@ -48,8 +58,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = direction;
+            <string>
 
+image_angle = direction;
+
+if (onTarget = 1){
 land = instance_place(x,y,obj_character_noname.action.targets[0]);
 if (land != noone)
     {
@@ -61,7 +74,22 @@ if (land != noone)
     numbers.attack = obj_character_noname.strength
     animation = instance_create(obj_character_noname.action.targets[0].x+obj_character_noname.action.targets[0].sprite_width*.2,obj_character_noname.action.targets[0].y,obj_character_noname.weapon)
     instance_destroy();
+    onTarget = 0
     }
+}
+else{
+land = instance_place(x,y,newTarget);
+if (land != noone){
+    newTarget.currentHP -= obj_character_noname.action.attacker.strength;
+    newTarget.hit = true
+    numbers = instance_create(newTarget.x,newTarget.y,obj_battle_damage)
+    numbers.damage = true
+    numbers.attack = obj_character_noname.strength
+    animation = instance_create(newTarget.x+newTarget.sprite_width*.2,newTarget.y,obj_character_noname.weapon)
+    instance_destroy();
+
+    }
+}
 </string>
           </argument>
         </arguments>

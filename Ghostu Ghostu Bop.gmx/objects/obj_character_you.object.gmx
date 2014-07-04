@@ -149,6 +149,7 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
     {
     if (image_index &gt; image_number - 1) 
         {
+      if object_exists(action.targets[0]){
         sprite_index = hero_idle
         image_speed = 1
         action.targets[0].currentHP -= action.attacker.strength
@@ -160,8 +161,22 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
         actionFinished = true
         attackQ = 0
         }
+      else{
+        randomize();
+        newTarget = obj_battle_controller.enemies[irandom(obj_battle_controller.numEnemies -1)];
+        sprite_index = hero_idle
+        image_speed = 1
+        newTarget.currentHP -= action.attacker.strength
+        newTarget.hit = true
+        numbers = instance_create(newTarget.x,newTarget.y,obj_battle_damage)
+        numbers.damage = true
+        numbers.attack = obj_character_you.strength
+        animation = instance_create (newTarget.x+newTarget.sprite_width*.2,newTarget.y,action.attacker.weapon)
+        actionFinished = true
+        attackQ = 0
+        }
     }
-
+}
 if (alarm[1] = 0)
 {
     obj_battle_controller.actionActive = false

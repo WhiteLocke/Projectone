@@ -29,6 +29,13 @@
 spriteFudge = 5
 paused = false
 
+//I want to try random battles while moving only
+moving = false
+//this for areas where battles are possible
+randomArea = true
+//this for randomizing the chances of battle
+battlenum = 100
+
 facing = vk_down
 // Set the initial depth to just below the default tile depth
 depth = DEPTH_DEFAULT-1
@@ -67,8 +74,10 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         {
             
             move_towards_point(x,y-TILE_HEIGHT,charSpeed)
+            moving = true
             
         }
+        else moving = false
     }
     
     if(keyboard_check_direct(vk_down))
@@ -79,8 +88,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         {
             
             move_towards_point(x,y+TILE_HEIGHT,charSpeed)
-            
+            moving = true
         }
+        else moving = false
     }
     
     if(keyboard_check_direct(vk_left))
@@ -91,8 +101,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         {
             
             move_towards_point(x-TILE_WIDTH,y,charSpeed)
-            
+            moving = true
         }
+        else moving = false
     }
     
     if(keyboard_check_direct(vk_right))
@@ -103,8 +114,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         {
             
             move_towards_point(x+TILE_WIDTH,y,charSpeed)
-            
+            moving = true
         }
+        else moving = false
     }
     
 
@@ -117,6 +129,10 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         paused = false
     }
 
+//random battle
+
+if (randomArea = true &amp;&amp; moving = true) battlenum = irandom(1000)
+if (battlenum &lt;= 25) room = battle_test
 </string>
           </argument>
         </arguments>

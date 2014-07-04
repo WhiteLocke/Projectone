@@ -171,11 +171,7 @@ for(var i = 0; i &lt; numEnemies; i++){
         //Need to stop the battle
         if(numEnemies = 0)
         {    
-           /* audio_stop_all()
-            audio_play_sound(fanfare,1,true)
-            playing = true*/
-            show_message("Battle done!")
-            game_end()
+           room = walking_test_tile_final
         }
     }
 }
