@@ -27,16 +27,18 @@
             <kind>1</kind>
             <string>depth = -50
 
-
-if (obj_character_noname.onTarget = true){
-onTarget = 1
-move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+if (obj_character_noname.battleOver = false){
+    if (obj_character_noname.onTarget = true){
+        onTarget = 1
+        move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
+    }
+    else{
+        randomize();
+        newTarget = obj_battle_controller.enemies[irandom(obj_battle_controller.numEnemies -1)];
+        move_towards_point(newTarget.x,newTarget.y,16)
+    }
 }
-else{
-randomize();
-newTarget = obj_battle_controller.enemies[irandom(obj_battle_controller.numEnemies -1)];
-move_towards_point(newTarget.x,newTarget.y,16)
-}
+else instance_destroy()
 </string>
           </argument>
         </arguments>
@@ -63,7 +65,7 @@ move_towards_point(newTarget.x,newTarget.y,16)
 
 image_angle = direction;
 
-if (obj_character_noname.onTarget = true){
+if (obj_character_noname.onTarget = true &amp;&amp; !obj_character_noname.battleOver = true){
 land = instance_place(x,y,obj_character_noname.action.targets[0]);
 if (land != noone)
     {
@@ -79,16 +81,17 @@ if (land != noone)
     }
 }
 else{
-land = instance_place(x,y,newTarget);
-if (land != noone){
-    newTarget.currentHP -= obj_character_noname.action.attacker.strength;
-    newTarget.hit = true
-    numbers = instance_create(newTarget.x,newTarget.y,obj_battle_damage)
-    numbers.damage = true
-    numbers.attack = obj_character_noname.strength
-    animation = instance_create(newTarget.x+newTarget.sprite_width*.2,newTarget.y,obj_character_noname.weapon)
-    instance_destroy();
-
+if (!obj_character_noname.battleOver = true){
+    land = instance_place(x,y,newTarget);
+        if (land != noone){
+            newTarget.currentHP -= obj_character_noname.action.attacker.strength;
+            newTarget.hit = true
+            numbers = instance_create(newTarget.x,newTarget.y,obj_battle_damage)
+            numbers.damage = true
+            numbers.attack = obj_character_noname.strength
+            animation = instance_create(newTarget.x+newTarget.sprite_width*.2,newTarget.y,obj_character_noname.weapon)
+            instance_destroy();
+        }
     }
 }
 </string>

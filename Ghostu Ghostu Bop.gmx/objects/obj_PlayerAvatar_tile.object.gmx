@@ -139,9 +139,13 @@ if (speed = 0) moving = false
 //random battle
 randomize()
 if (randomArea = true &amp;&amp; moving = true) battlenum = irandom(1000)
+
+//just arbitrarily chose a range of numbers that would activate a battle.
+//this could be one number out of a hundred or whatever the fuck
 if (battlenum &lt;= 25)
     {
     battlenum = 100
+    speed = 0
     room = battle_test
     }
 </string>

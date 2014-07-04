@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>room_persistent = false
 
+
 //tmp variable
 playing = false
 tokill = 0
@@ -174,11 +175,14 @@ for(var i = 0; i &lt; numEnemies; i++){
         a void. So, everything needs to be stopped.
         BUT the battle controller still finishes this step, so player and shit needs to
         exist or it will be confused.
+        Also, the players will STILL try to attack unless you tell their stupid asses
+        the battle is over.
         Finally, the players need to be persistent, so they need to be kicked back
         online before the shit leaves this room. Below is my best shot at a solution for now.*/
         
         if(numEnemies = 0)
         {    
+            for(var i = 0; i &lt; Player.numPartyMembers; i++)Player.party[i].battleOver = true
             instance_deactivate_all(false)
             instance_activate_object(Player)
             instance_activate_object(obj_character_noname)

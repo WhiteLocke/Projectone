@@ -28,20 +28,30 @@
             <string>event_inherited()
 name = 'Noname'
 battleMenuObject = obj_noname_battlemenu
+//stats
 agility = 50
 currentHP = 933
+
+//animation sprites
 spellprep = spr_noname_spellprep
 spellcast = spr_noname_spellcast 
 attackprep = spr_noname_angry
 attack = spr_noname_attack
 hitindex = spr_noname_hit
-actionFinished = true
-hit = false
-monster = false
 weapon = obj_bash
+
+actionFinished = true
+//I forgot if this is for her getting hit or for her dealing a hit...
+hit = false
+
+monster = false
+
+//is target valid?
 onTarget = true
+//is she being targeted?
 marked = false
 
+battleOver = false
 </string>
           </argument>
         </arguments>
