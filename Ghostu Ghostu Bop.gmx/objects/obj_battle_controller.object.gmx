@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>room_persistent = false
 
 //tmp variable
 playing = false
@@ -169,9 +169,21 @@ for(var i = 0; i &lt; numEnemies; i++){
         numEnemies--
         
         //Need to stop the battle
+        /* okay so stopping the battle isn't so simple as all that.
+        first, any actions not completed will fuck things up as they try to complete in
+        a void. So, everything needs to be stopped.
+        BUT the battle controller still finishes this step, so player and shit needs to
+        exist or it will be confused.
+        Finally, the players need to be persistent, so they need to be kicked back
+        online before the shit leaves this room. Below is my best shot at a solution for now.*/
+        
         if(numEnemies = 0)
         {    
-           room = walking_test_tile_final
+            instance_deactivate_all(false)
+            instance_activate_object(Player)
+            instance_activate_object(obj_character_noname)
+            instance_activate_object(obj_character_you)
+            room = walking_test_tile_final
         }
     }
 }

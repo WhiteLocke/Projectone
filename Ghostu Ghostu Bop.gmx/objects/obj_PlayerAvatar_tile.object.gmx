@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charSpeed = 8 //Make sure this isn't more than 31, or we might clip over collisions
+            <string>//we gotta make the room this bitch is in persistent so progress will be saved
+room_persistent = true
+
+charSpeed = 8 //Make sure this isn't more than 31, or we might clip over collisions
 spriteFudge = 5
 paused = false
 
@@ -132,7 +135,11 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
 //random battle
 
 if (randomArea = true &amp;&amp; moving = true) battlenum = irandom(1000)
-if (battlenum &lt;= 25) room = battle_test
+if (battlenum &lt;= 25)
+    {
+    battlenum = 100
+    room = battle_test
+    }
 </string>
           </argument>
         </arguments>
