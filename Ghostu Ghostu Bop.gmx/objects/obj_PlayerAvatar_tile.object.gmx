@@ -80,8 +80,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
             moving = true
             
         }
-        else moving = false
+        
     }
+    
     
     if(keyboard_check_direct(vk_down))
     {
@@ -93,8 +94,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
             move_towards_point(x,y+TILE_HEIGHT,charSpeed)
             moving = true
         }
-        else moving = false
+        
     }
+    
     
     if(keyboard_check_direct(vk_left))
     {
@@ -106,8 +108,9 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
             move_towards_point(x-TILE_WIDTH,y,charSpeed)
             moving = true
         }
-        else moving = false
+        
     }
+    
     
     if(keyboard_check_direct(vk_right))
     {
@@ -119,7 +122,7 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
             move_towards_point(x+TILE_WIDTH,y,charSpeed)
             moving = true
         }
-        else moving = false
+        
     }
     
 
@@ -131,9 +134,10 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         io_clear()
         paused = false
     }
-
+if (speed = 0) moving = false
+    
 //random battle
-
+randomize()
 if (randomArea = true &amp;&amp; moving = true) battlenum = irandom(1000)
 if (battlenum &lt;= 25)
     {
