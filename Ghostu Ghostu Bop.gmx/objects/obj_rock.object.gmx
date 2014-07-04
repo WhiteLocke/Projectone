@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>onTarget = 0
+            <string>depth = -50
 
-if object_exists(obj_character_noname.action.targets[0]){
+
+if (obj_character_noname.onTarget = true){
 onTarget = 1
 move_towards_point(obj_character_noname.action.targets[0].x,obj_character_noname.action.targets[0].y,16)
 }
@@ -62,7 +63,7 @@ move_towards_point(newTarget.x,newTarget.y,16)
 
 image_angle = direction;
 
-if (onTarget = 1){
+if (obj_character_noname.onTarget = true){
 land = instance_place(x,y,obj_character_noname.action.targets[0]);
 if (land != noone)
     {

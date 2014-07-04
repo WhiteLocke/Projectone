@@ -136,6 +136,10 @@ arrowy = y
                     action.numTargets = 1
                     action.script=script
                     ds_queue_enqueue(obj_battle_controller.actionQueue,action)
+                    //this tag will help the target realize it has been targeted
+                    action.targets[0].marked = true
+                    //and this one will help them realize when their target is not valid
+                    action.attacker.onTarget = true
                 }
                 if(enemySelected){
                     action = instance_create(x,y,obj_action)
@@ -144,7 +148,8 @@ arrowy = y
                     action.numTargets = 1
                     action.script=script
                     ds_queue_enqueue(obj_battle_controller.actionQueue,action)
-                
+                    action.targets[0].marked = true
+                    action.attacker.onTarget = true
                 }
             }
             

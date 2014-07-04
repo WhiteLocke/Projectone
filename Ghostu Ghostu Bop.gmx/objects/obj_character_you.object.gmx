@@ -40,7 +40,8 @@ strength = 5
 hit = false
 monster = false
 weapon = obj_claw
-
+onTarget = true
+marked = false
 </string>
           </argument>
         </arguments>
@@ -149,7 +150,7 @@ if (sprite_index = attack &amp;&amp; attackQ = 1)
     {
     if (image_index &gt; image_number - 1) 
         {
-      if object_exists(action.targets[0]){
+      if (onTarget = true){
         sprite_index = hero_idle
         image_speed = 1
         action.targets[0].currentHP -= action.attacker.strength

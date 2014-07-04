@@ -39,6 +39,8 @@ actionFinished = true
 hit = false
 monster = false
 weapon = obj_bash
+onTarget = true
+marked = false
 
 </string>
           </argument>

@@ -38,6 +38,7 @@ hitsp = sprite41
 monster = true
 attacking = false
 weapon = obj_claw
+marked = false
 
 
 
@@ -174,6 +175,7 @@ if (alarm[1] = 5)
     }
 if (alarm[1] = 0)
     {
+       if (marked = true) obj_battle_controller.action.attacker.onTarget = false
        instance_destroy()
        audio_play_sound(snd_hit,1,false)
     }
