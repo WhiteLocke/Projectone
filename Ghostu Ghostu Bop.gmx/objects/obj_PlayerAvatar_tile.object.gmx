@@ -146,7 +146,7 @@ if (battlenum &lt;= 25)
     {
     battlenum = 100
     speed = 0
-    room = battle_test
+    instance_create(0,0,obj_whitefade)
     }
 </string>
           </argument>

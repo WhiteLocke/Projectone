@@ -52,6 +52,7 @@
     <sound>sound\snd_hit</sound>
     <sound>sound\snd_woosh</sound>
     <sound>sound\snd_xplo</sound>
+    <sound>sound\snd_whitefade</sound>
     <sound>sound\snd_evillaugh</sound>
     <sounds name="TEXTBOX">
       <sound>sound\snd_textbox_close</sound>
@@ -149,6 +150,7 @@
       <sprite>sprites\spr_claw</sprite>
       <sprite>sprites\spr_bash</sprite>
     </sprites>
+    <sprite>sprites\spr_whitefade</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -214,6 +216,7 @@
       <object>objects\obj_MapCollidable</object>
       <object>objects\obj_MapNPC</object>
       <object>objects\obj_Depth_Controller</object>
+      <object>objects\obj_whitefade</object>
     </objects>
     <objects name="Characters">
       <object>objects\obj_character</object>
