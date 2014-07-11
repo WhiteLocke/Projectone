@@ -145,12 +145,14 @@ if (randomArea = true &amp;&amp; moving = true) battlenum = irandom(1000)
 
 //just arbitrarily chose a range of numbers that would activate a battle.
 //this could be one number out of a hundred or whatever the fuck
-/*if (battlenum &lt;= 25)
+//this next if statement is all you need to comment out if you want to debug collisions
+
+if (battlenum &lt;= 25)
     {
     battlenum = 100
     speed = 0
     instance_create(0,0,obj_whitefade)
-    }*/
+    }
     
 if (speed = 0 &amp;&amp; facing = vk_left){
     sprite_index = spr_noname_idle
