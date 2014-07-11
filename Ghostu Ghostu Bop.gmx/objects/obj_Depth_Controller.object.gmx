@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(all)
+            <string>
+
+with(all)
     depth = -y
 </string>
           </argument>

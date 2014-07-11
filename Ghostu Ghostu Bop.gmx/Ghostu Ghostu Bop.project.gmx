@@ -109,6 +109,8 @@
         <sprite>sprites\spr_rock</sprite>
         <sprite>sprites\spr_noname_spellcast</sprite>
         <sprite>sprites\spr_noname_front</sprite>
+        <sprite>sprites\spr_noname_back</sprite>
+        <sprite>sprites\sprite65</sprite>
       </sprites>
       <sprites name="NPCs">
         <sprite>sprites\spr_mother_noname</sprite>
