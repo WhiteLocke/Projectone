@@ -100,10 +100,10 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
     
     if(keyboard_check_direct(vk_left))
     {
-        facing = vk_left
         sprite_index = spr_noname_run
         image_xscale = 1
         image_speed = .25
+        facing = vk_left
         if(!tile_layer_find(DEPTH_COLLISION, x-TILE_WIDTH, y) and tile_free(x-TILE_WIDTH,y))
         {
             
@@ -112,14 +112,14 @@ if(!paused &amp;&amp; x mod TILE_WIDTH == 0 &amp;&amp; y mod TILE_HEIGHT == 0){
         }
         
     }
-    
-    
+   
+            
     if(keyboard_check_direct(vk_right))
     {
-        facing = vk_right
         sprite_index = spr_noname_run
         image_xscale = -1
         image_speed = .25
+        facing = vk_right
         if(!tile_layer_find(DEPTH_COLLISION, x+TILE_WIDTH, y) and tile_free(x+TILE_WIDTH,y))
         {
             
@@ -154,12 +154,12 @@ if (battlenum &lt;= 25)
     instance_create(0,0,obj_whitefade)
     }
     
-if (speed = 0 &amp;&amp; facing = vk_left){
+if (!moving &amp;&amp; facing = vk_left){
     sprite_index = spr_noname_idle
     image_xscale = 1
     }
 
-if (speed = 0 &amp;&amp; facing = vk_right){
+if (!moving &amp;&amp; facing = vk_right){
     sprite_index = spr_noname_idle
     image_xscale = -1
     }

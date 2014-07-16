@@ -71,6 +71,7 @@
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_enemyh</sprite>
     <sprite>sprites\spr_wall_old</sprite>
+    <sprite>sprites\spr_fakewall</sprite>
     <sprite>sprites\spr_heromask</sprite>
     <sprite>sprites\spr_soul</sprite>
     <sprite>sprites\spr_prsoul</sprite>
@@ -219,6 +220,7 @@
       <object>objects\obj_MapNPC</object>
       <object>objects\obj_Depth_Controller</object>
       <object>objects\obj_whitefade</object>
+      <object>objects\obj_fakewall</object>
     </objects>
     <objects name="Characters">
       <object>objects\obj_character</object>
